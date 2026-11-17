@@ -10,9 +10,9 @@ function Brand() {
         <Compass className="size-7 stroke-[1.25]" />
       </span>
       <span className="text-[15px] font-extrabold tracking-[0.14em]">
-        MOROCCO
+        SHARED MOROCCO
         <span className="mt-1 block text-[8px] font-semibold tracking-[0.29em]">
-          TOUR MARRAKECH
+          TRIPS
         </span>
       </span>
     </>
@@ -32,7 +32,7 @@ export function Header() {
         <Link
           href="/"
           className="flex shrink-0 items-center gap-3"
-          aria-label="Morocco Tour Marrakech home"
+          aria-label="Shared Morocco Trips home"
         >
           <Brand />
         </Link>
@@ -76,9 +76,9 @@ export function Footer() {
           <Link className="flex items-center gap-3" href="/">
             <Compass className="size-10 stroke-1" />
             <span className="text-lg font-bold tracking-[0.1em]">
-              MOROCCO
+              SHARED MOROCCO
               <span className="block text-[9px] tracking-[0.25em]">
-                TOUR MARRAKECH
+                TRIPS
               </span>
             </span>
           </Link>
@@ -134,7 +134,7 @@ export function Footer() {
         </div>
       </div>
       <div className="mx-auto flex max-w-6xl flex-col justify-between gap-4 border-t border-white/10 pt-6 text-[10px] text-white/45 sm:flex-row">
-        <span>© {new Date().getFullYear()} Morocco Tour Marrakech</span>
+        <span>© {new Date().getFullYear()} Shared Morocco Trips</span>
         <div className="flex flex-wrap gap-5">
           <Link href="/privacy-policy">Privacy</Link>
           <Link href="/terms-and-conditions">Terms & conditions</Link>
