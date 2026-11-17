@@ -37,16 +37,15 @@ export default async function Tours({
     <main id="main">
       <section className="mx-auto w-full max-w-7xl px-5 py-14 sm:px-8 lg:px-12 lg:py-20 pb-8">
         <span className="mb-4 block text-[10px] font-bold tracking-[0.2em] uppercase text-[#a44327]">
-          FIND YOUR NEXT STORY
+          EXPLORE THE COLLECTION
         </span>
-        <h1>Morocco, your way.</h1>
+        <h1>Find a journey that fits you.</h1>
         <p>
-          Sahara journeys, coastal escapes and experiences worth making time
-          for.
+          Browse shared desert adventures, day trips and longer journeys across Morocco. Filter by destination, experience and budget to find the right route.
         </p>
       </section>
-      <div className="mx-auto w-full max-w-7xl px-5 py-14 sm:px-8 lg:px-12 lg:py-20 grid items-start gap-8 pt-0 lg:grid-cols-[250px_minmax(0,1fr)]">
-        <aside className="rounded-3xl border border-stone-200 bg-white p-6 [&_h2]:text-2xl [&_label]:mb-4 [&_label]:block [&_label]:text-xs [&_label]:font-semibold [&_input]:mt-2 [&_input]:min-h-12 [&_input]:w-full [&_input]:rounded-xl [&_input]:border [&_input]:border-stone-200 [&_input]:bg-white [&_input]:px-4 [&_input]:py-3 [&_input]:text-sm [&_select]:mt-2 [&_select]:min-h-12 [&_select]:w-full [&_select]:rounded-xl [&_select]:border [&_select]:border-stone-200 [&_select]:bg-white [&_select]:px-3 [&_select]:py-3 [&_select]:text-sm [&_textarea]:mt-2 [&_textarea]:w-full [&_textarea]:rounded-xl [&_textarea]:border [&_textarea]:border-stone-200 [&_textarea]:bg-white [&_textarea]:p-4 [&_textarea]:text-sm [&_input:focus]:outline-2 [&_input:focus]:outline-[#b34c2f] [&_select:focus]:outline-2 [&_select:focus]:outline-[#b34c2f] [&_textarea:focus]:outline-2 [&_textarea:focus]:outline-[#b34c2f]">
+      <div className="mx-auto w-full max-w-7xl px-5 py-14 sm:px-8 lg:px-12 lg:py-20 grid items-start gap-10 pt-0 lg:grid-cols-[280px_minmax(0,1fr)]">
+        <aside className="rounded-[26px] border border-[#17362e]/10 bg-white p-7 shadow-sm lg:sticky lg:top-6 [&_h2]:text-2xl [&_label]:mb-4 [&_label]:block [&_label]:text-xs [&_label]:font-semibold [&_input]:mt-2 [&_input]:min-h-12 [&_input]:w-full [&_input]:rounded-xl [&_input]:border [&_input]:border-stone-200 [&_input]:bg-white [&_input]:px-4 [&_input]:py-3 [&_input]:text-sm [&_select]:mt-2 [&_select]:min-h-12 [&_select]:w-full [&_select]:rounded-xl [&_select]:border [&_select]:border-stone-200 [&_select]:bg-white [&_select]:px-3 [&_select]:py-3 [&_select]:text-sm [&_textarea]:mt-2 [&_textarea]:w-full [&_textarea]:rounded-xl [&_textarea]:border [&_textarea]:border-stone-200 [&_textarea]:bg-white [&_textarea]:p-4 [&_textarea]:text-sm [&_input:focus]:outline-2 [&_input:focus]:outline-[#b34c2f] [&_select:focus]:outline-2 [&_select:focus]:outline-[#b34c2f] [&_textarea:focus]:outline-2 [&_textarea:focus]:outline-[#b34c2f]">
           <form action="/tours">
             <h2>Find your experience</h2>
             <label>
@@ -103,10 +102,10 @@ export default async function Tours({
         </aside>
         <div>
           <div className="mb-6 text-sm text-stone-500">
-            {items.length} experiences {q && <>matching “{q}”</>}
+            {items.length} journeys available to explore {q && <>matching “{q}”</>}
           </div>
           {items.length ? (
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+            <div className="grid grid-cols-1 gap-7 md:grid-cols-2">
               {items.map((s) => (
                 <TourCard key={s.id} tour={s} />
               ))}
