@@ -126,8 +126,8 @@ function TourDetail({ s }: { s: Tour }) {
           {s.location}
         </p>
       </div>
-      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-3 px-5 sm:px-8 md:h-[460px] md:grid-cols-[2fr_1fr] md:grid-rows-2 lg:px-12">
-        <div className="relative min-h-72 overflow-hidden rounded-3xl md:row-span-2 [&:only-child]:col-span-full [&_img]:object-cover">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-3 px-5 sm:px-8 md:h-[500px] md:grid-cols-[2fr_1fr] md:grid-rows-2 lg:px-12">
+        <div className="relative min-h-80 overflow-hidden rounded-[28px] md:row-span-2 [&:only-child]:col-span-full [&_img]:object-cover">
           {hero && (
             <Image
               src={hero}
@@ -141,7 +141,7 @@ function TourDetail({ s }: { s: Tour }) {
         {photos.map((p, i) => (
           <div
             key={i}
-            className="relative hidden overflow-hidden rounded-2xl md:block [&_img]:object-cover"
+            className="relative hidden overflow-hidden rounded-[24px] md:block [&_img]:object-cover"
           >
             <Image
               src={image(p.image_path)}
@@ -154,7 +154,7 @@ function TourDetail({ s }: { s: Tour }) {
       </div>
       <div className="mx-auto w-full max-w-7xl px-5 py-14 sm:px-8 lg:px-12 lg:py-20 grid items-start gap-10 pt-8 lg:grid-cols-[minmax(0,1fr)_350px]">
         <article>
-          <div className="grid grid-cols-2 gap-6 rounded-2xl bg-[#efede5] p-6 [&_small]:mb-2 [&_small]:block [&_small]:text-xs [&_small]:text-stone-500 [&_strong]:text-sm [&_strong]:font-medium [&>div:last-child]:col-span-2">
+          <div className="grid grid-cols-2 gap-6 rounded-[24px] border border-[#17362e]/10 bg-[#f0eee6] p-7 [&_small]:mb-2 [&_small]:block [&_small]:text-xs [&_small]:text-stone-500 [&_strong]:text-sm [&_strong]:font-medium [&>div:last-child]:col-span-2">
             <div>
               <small>Duration</small>
               <strong>{s.duration}</strong>
@@ -341,7 +341,7 @@ function TourDetail({ s }: { s: Tour }) {
         </article>
         <aside
           id="availability"
-          className="scroll-mt-24 rounded-3xl border border-stone-200 bg-white p-7 shadow-xl shadow-stone-900/5 lg:sticky lg:top-8 [&>h2]:text-2xl"
+          className="scroll-mt-24 rounded-[28px] border border-[#17362e]/10 bg-white p-7 shadow-2xl shadow-[#17362e]/10 lg:sticky lg:top-8 [&>h2]:text-2xl"
         >
           <span className="mb-4 block text-[10px] font-bold tracking-[0.2em] uppercase text-[#a44327]">
             PLAN YOUR EXPERIENCE
@@ -361,7 +361,7 @@ function TourDetail({ s }: { s: Tour }) {
           </a>
         </aside>
       </div>
-      <div className="fixed inset-x-0 bottom-0 z-40 flex items-center justify-between gap-3 border-t border-stone-200 bg-white p-4 shadow-lg lg:hidden [&>strong]:text-xl">
+      <div className="fixed inset-x-0 bottom-0 z-40 flex items-center justify-between gap-3 border-t border-stone-200 bg-white/95 p-4 pb-[max(1rem,env(safe-area-inset-bottom))] shadow-lg backdrop-blur-md lg:hidden [&>strong]:text-xl">
         <strong>{money(s)}</strong>
         <a
           className="inline-flex min-h-12 items-center justify-center gap-3 rounded-full bg-[#b34c2f] px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-[#913c24] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#b34c2f]"
