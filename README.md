@@ -1,6 +1,6 @@
 # Morocco Tour Marrakech — Next.js public website
 
-First review build, 17 November 2026. Public Next.js frontend; the existing PHP dashboard and MySQL database remain authoritative.
+Tailwind design revision, 17 November 2026. Public Next.js frontend; the existing PHP dashboard and MySQL database remain authoritative.
 
 ## Run
 
@@ -45,3 +45,7 @@ Availability requests are explicitly prepared for WhatsApp and must then be sent
 ## Verification
 
 The production Next.js build and TypeScript check are run against the live catalogue. See VALIDATION.md for recorded checks and limitations. API edits have a persistent server backup journal; the existing public website templates were not replaced.
+
+## Public styling
+
+The public frontend uses Tailwind CSS v4 through the official PostCSS plugin, with utility classes directly in components. app/tailwind.css contains only the Tailwind import; the former custom globals.css stylesheet has been removed. Responsive styling covers the homepage, navigation, catalogue, tour details, inquiry controls, blog, CMS pages and footer. Lucide provides interface icons. The PHP admin and its CSS are unchanged.

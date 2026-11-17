@@ -21,3 +21,7 @@
 - Missing existing public/api/_bootstrap.php prevents reliance on the old booking API; the build does not use it.
 - Existing content has factual inconsistencies requiring owner review, including standard vs luxury camp language on the Merzouga tour.
 - Production domain transition, backend/asset hostname separation, redirects, canonical/hreflang, structured data, analytics and payment/seat inventory integration remain release work.
+
+## Tailwind revision
+
+All public custom selectors were replaced with Tailwind utilities. The stylesheet now contains only the Tailwind import. Next.js production build passed with the Tailwind PostCSS integration. Visual browser validation remains pending because Chromium cannot launch under this execution environment.

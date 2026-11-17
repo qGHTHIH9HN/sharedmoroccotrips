@@ -58,14 +58,24 @@ export default async function Detail({
     const s = r.item;
     const src = image(s.hero_image || s.featured_image);
     return (
-      <main id="main" className="section article">
-        <Link className="text-link" href="/">
+      <main
+        id="main"
+        className="mx-auto w-full max-w-7xl px-5 py-14 sm:px-8 lg:px-12 lg:py-20 max-w-4xl [&>h1]:mt-6"
+      >
+        <Link
+          className="inline-flex items-center gap-2 border-b border-[#b34c2f]/50 pb-1 text-sm font-semibold text-[#153e35] transition hover:text-[#b34c2f]"
+          href="/"
+        >
           Home
         </Link>
         <h1>{s.title}</h1>
-        {s.excerpt && <p className="lead">{s.excerpt}</p>}
+        {s.excerpt && (
+          <p className="mb-6 text-lg leading-relaxed text-stone-600">
+            {s.excerpt}
+          </p>
+        )}
         {src && (
-          <div className="article-image">
+          <div className="relative my-9 h-72 overflow-hidden rounded-3xl sm:h-[440px] [&_img]:object-cover">
             <Image
               src={src}
               alt={s.title}
@@ -76,10 +86,13 @@ export default async function Detail({
           </div>
         )}
         <div
-          className="prose"
+          className="text-[15px] leading-8 text-stone-600 [&_p]:mb-5 [&_h2]:mt-9 [&_h2]:mb-4 [&_h2]:font-serif [&_h2]:text-3xl [&_h2]:text-[#153e35] [&_h3]:mt-7 [&_h3]:mb-3 [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:text-[#153e35] [&_a]:text-[#a44327] [&_a]:underline [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:list-decimal [&_ol]:pl-6 [&_li]:mb-2"
           dangerouslySetInnerHTML={{ __html: html(s.content) }}
         />
-        <Link className="button" href="/tours">
+        <Link
+          className="inline-flex min-h-12 items-center justify-center gap-3 rounded-full bg-[#b34c2f] px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-[#913c24] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#b34c2f]"
+          href="/tours"
+        >
           Explore experiences ↗
         </Link>
       </main>
@@ -96,12 +109,12 @@ function TourDetail({ s }: { s: Tour }) {
   const stays = s.accommodations.filter((x) => Number(x.is_active) !== 0);
   return (
     <main id="main">
-      <div className="section detail-top">
-        <div className="breadcrumbs">
+      <div className="mx-auto w-full max-w-7xl px-5 py-14 sm:px-8 lg:px-12 lg:py-20 pb-6 pt-8 [&_h1]:max-w-4xl [&_h1]:text-4xl sm:[&_h1]:text-5xl">
+        <div className="mb-7 text-xs leading-6 text-stone-500 [&_a:hover]:text-[#b34c2f]">
           <Link href="/">Home</Link> / <Link href="/tours">Experiences</Link> /{" "}
           {s.duration}
         </div>
-        <span className="eyebrow accent">
+        <span className="mb-4 block text-[10px] font-bold tracking-[0.2em] uppercase text-[#a44327]">
           {s.group_type === "group"
             ? "SHARED EXPERIENCE"
             : s.group_type === "private"
@@ -109,10 +122,12 @@ function TourDetail({ s }: { s: Tour }) {
               : "MOROCCO EXPERIENCE"}
         </span>
         <h1>{s.title}</h1>
-        <p className="lead">{s.location}</p>
+        <p className="mb-6 text-lg leading-relaxed text-stone-600">
+          {s.location}
+        </p>
       </div>
-      <div className="section gallery">
-        <div className="gallery-main">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-3 px-5 sm:px-8 md:h-[460px] md:grid-cols-[2fr_1fr] md:grid-rows-2 lg:px-12">
+        <div className="relative min-h-72 overflow-hidden rounded-3xl md:row-span-2 [&:only-child]:col-span-full [&_img]:object-cover">
           {hero && (
             <Image
               src={hero}
@@ -124,7 +139,10 @@ function TourDetail({ s }: { s: Tour }) {
           )}
         </div>
         {photos.map((p, i) => (
-          <div key={i} className="gallery-side">
+          <div
+            key={i}
+            className="relative hidden overflow-hidden rounded-2xl md:block [&_img]:object-cover"
+          >
             <Image
               src={image(p.image_path)}
               alt={String(p.alt_text || p.caption || s.title)}
@@ -134,9 +152,9 @@ function TourDetail({ s }: { s: Tour }) {
           </div>
         ))}
       </div>
-      <div className="section detail-layout">
+      <div className="mx-auto w-full max-w-7xl px-5 py-14 sm:px-8 lg:px-12 lg:py-20 grid items-start gap-10 pt-8 lg:grid-cols-[minmax(0,1fr)_350px]">
         <article>
-          <div className="facts">
+          <div className="grid grid-cols-2 gap-6 rounded-2xl bg-[#efede5] p-6 [&_small]:mb-2 [&_small]:block [&_small]:text-xs [&_small]:text-stone-500 [&_strong]:text-sm [&_strong]:font-medium [&>div:last-child]:col-span-2">
             <div>
               <small>Duration</small>
               <strong>{s.duration}</strong>
@@ -150,44 +168,61 @@ function TourDetail({ s }: { s: Tour }) {
               <strong>{text(s.transport_info) || "See inclusions"}</strong>
             </div>
           </div>
-          <nav className="section-nav" aria-label="Tour sections">
+          <nav
+            className="mt-6 flex flex-wrap gap-x-7 gap-y-3 border-b border-stone-200 py-5 text-sm font-semibold [&_a:hover]:text-[#b34c2f]"
+            aria-label="Tour sections"
+          >
             <a href="#overview">Overview</a>
             {s.days.length > 0 && <a href="#itinerary">Itinerary</a>}
             {stays.length > 0 && <a href="#stay">Stay</a>}
             {inc.length > 0 && <a href="#included">Included</a>}
             {s.faqs.length > 0 && <a href="#faq">FAQs</a>}
           </nav>
-          <section id="overview" className="tour-section">
+          <section
+            id="overview"
+            className="scroll-mt-24 border-b border-stone-200 py-9 [&>h2]:text-3xl"
+          >
             <h2>Your experience</h2>
-            <p className="lead">{text(s.hero_intro || s.excerpt)}</p>
+            <p className="mb-6 text-lg leading-relaxed text-stone-600">
+              {text(s.hero_intro || s.excerpt)}
+            </p>
             <div
-              className="prose"
+              className="text-[15px] leading-8 text-stone-600 [&_p]:mb-5 [&_h2]:mt-9 [&_h2]:mb-4 [&_h2]:font-serif [&_h2]:text-3xl [&_h2]:text-[#153e35] [&_h3]:mt-7 [&_h3]:mb-3 [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:text-[#153e35] [&_a]:text-[#a44327] [&_a]:underline [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:list-decimal [&_ol]:pl-6 [&_li]:mb-2"
               dangerouslySetInnerHTML={{ __html: html(s.content) }}
             />
           </section>
           {s.days.length > 0 && (
-            <section id="itinerary" className="tour-section">
-              <span className="eyebrow accent">THE JOURNEY</span>
+            <section
+              id="itinerary"
+              className="scroll-mt-24 border-b border-stone-200 py-9 [&>h2]:text-3xl"
+            >
+              <span className="mb-4 block text-[10px] font-bold tracking-[0.2em] uppercase text-[#a44327]">
+                THE JOURNEY
+              </span>
               <h2>
                 {Number(s.duration_days) > 1 ? "Day by day" : "Your programme"}
               </h2>
               {s.days.map((d, i) => (
-                <details className="day" key={i} open={i === 0}>
+                <details
+                  className="group border-t border-stone-200 [&_summary]:flex [&_summary]:cursor-pointer [&_summary]:list-none [&_summary]:items-center [&_summary]:gap-4 [&_summary]:py-6 [&_summary]:text-sm [&_summary]:font-semibold [&_summary>span:last-child]:ml-auto"
+                  key={i}
+                  open={i === 0}
+                >
                   <summary>
-                    <span className="day-number">
+                    <span className="text-xs font-bold text-[#b34c2f]">
                       {String(d.day_number || i + 1).padStart(2, "0")}
                     </span>
                     <span>{text(d.title)}</span>
                     <span>+</span>
                   </summary>
                   <div
-                    className="day-body prose"
+                    className="pb-6 pl-9 text-[15px] leading-8 text-stone-600 [&_p]:mb-5 [&_h2]:mt-9 [&_h2]:mb-4 [&_h2]:font-serif [&_h2]:text-3xl [&_h2]:text-[#153e35] [&_h3]:mt-7 [&_h3]:mb-3 [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:text-[#153e35] [&_a]:text-[#a44327] [&_a]:underline [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:list-decimal [&_ol]:pl-6 [&_li]:mb-2"
                     dangerouslySetInnerHTML={{
                       __html: html(d.details || d.description),
                     }}
                   />
                   {Boolean(d.meals) && (
-                    <p className="day-body">
+                    <p className="pb-6 pl-9 text-sm text-stone-600">
                       <strong>Meals:</strong> {text(d.meals)}
                     </p>
                   )}
@@ -196,12 +231,18 @@ function TourDetail({ s }: { s: Tour }) {
             </section>
           )}
           {stays.length > 0 && (
-            <section id="stay" className="tour-section">
+            <section
+              id="stay"
+              className="scroll-mt-24 border-b border-stone-200 py-9 [&>h2]:text-3xl"
+            >
               <h2>Where you’ll stay</h2>
               {stays.map((a, i) => (
-                <div key={i} className="stay-card">
+                <div
+                  key={i}
+                  className="mb-5 overflow-hidden rounded-2xl border border-stone-200 bg-white p-5 [&_h3]:mb-2 [&_h3]:text-xl [&_p]:mt-3 [&_p]:text-sm [&_p]:text-stone-600"
+                >
                   {image(a.image_url) && (
-                    <div className="stay-image">
+                    <div className="relative mb-5 h-56 overflow-hidden rounded-xl [&_img]:object-cover">
                       <Image
                         src={image(a.image_url)}
                         alt={text(a.name)}
@@ -216,7 +257,7 @@ function TourDetail({ s }: { s: Tour }) {
                       {text(a.location)} · {text(a.accommodation_type)}
                     </p>
                     <div
-                      className="prose"
+                      className="text-[15px] leading-8 text-stone-600 [&_p]:mb-5 [&_h2]:mt-9 [&_h2]:mb-4 [&_h2]:font-serif [&_h2]:text-3xl [&_h2]:text-[#153e35] [&_h3]:mt-7 [&_h3]:mb-3 [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:text-[#153e35] [&_a]:text-[#a44327] [&_a]:underline [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:list-decimal [&_ol]:pl-6 [&_li]:mb-2"
                       dangerouslySetInnerHTML={{ __html: html(a.description) }}
                     />
                     {Boolean(a.room_details) && <p>{text(a.room_details)}</p>}
@@ -226,7 +267,9 @@ function TourDetail({ s }: { s: Tour }) {
                       </p>
                     )}
                     {Boolean(a.substitution_note) && (
-                      <p className="fineprint">{text(a.substitution_note)}</p>
+                      <p className="my-4 text-xs leading-6 text-stone-500">
+                        {text(a.substitution_note)}
+                      </p>
                     )}
                   </div>
                 </div>
@@ -234,13 +277,19 @@ function TourDetail({ s }: { s: Tour }) {
             </section>
           )}
           {inc.length > 0 && (
-            <section id="included" className="tour-section">
+            <section
+              id="included"
+              className="scroll-mt-24 border-b border-stone-200 py-9 [&>h2]:text-3xl"
+            >
               <h2>What’s included & extra</h2>
               {inc.map((x, i) => (
-                <div className="include" key={i}>
+                <div
+                  className="border-t border-stone-200 py-5 [&_h3]:mb-2 [&_h3]:text-base [&_h3]:font-semibold"
+                  key={i}
+                >
                   <h3>{text(x.title)}</h3>
                   <div
-                    className="prose"
+                    className="text-[15px] leading-8 text-stone-600 [&_p]:mb-5 [&_h2]:mt-9 [&_h2]:mb-4 [&_h2]:font-serif [&_h2]:text-3xl [&_h2]:text-[#153e35] [&_h3]:mt-7 [&_h3]:mb-3 [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:text-[#153e35] [&_a]:text-[#a44327] [&_a]:underline [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:list-decimal [&_ol]:pl-6 [&_li]:mb-2"
                     dangerouslySetInnerHTML={{ __html: html(x.details) }}
                   />
                 </div>
@@ -248,13 +297,13 @@ function TourDetail({ s }: { s: Tour }) {
             </section>
           )}
           {s.departures.length > 0 && (
-            <section className="tour-section">
+            <section className="scroll-mt-24 border-b border-stone-200 py-9 [&>h2]:text-3xl">
               <h2>Scheduled departures</h2>
               <p>
                 Ask our team to confirm current places and the final price for
                 your party.
               </p>
-              <div className="departures">
+              <div className="[&>div]:flex [&>div]:flex-wrap [&>div]:gap-5 [&>div]:border-b [&>div]:border-stone-200 [&>div]:py-4 [&>div]:text-sm">
                 {s.departures.map((d, i) => (
                   <div key={i}>
                     <strong>{text(d.start_date)}</strong>
@@ -270,13 +319,19 @@ function TourDetail({ s }: { s: Tour }) {
             </section>
           )}
           {s.faqs.length > 0 && (
-            <section id="faq" className="tour-section">
+            <section
+              id="faq"
+              className="scroll-mt-24 border-b border-stone-200 py-9 [&>h2]:text-3xl"
+            >
               <h2>Before you go</h2>
               {s.faqs.map((f, i) => (
-                <details className="faq" key={i}>
+                <details
+                  className="border-t border-stone-200 [&_summary]:cursor-pointer [&_summary]:py-5 [&_summary]:pr-4 [&_summary]:text-sm [&_summary]:font-semibold [&>div]:pb-6"
+                  key={i}
+                >
                   <summary>{text(f.question)}</summary>
                   <div
-                    className="prose"
+                    className="text-[15px] leading-8 text-stone-600 [&_p]:mb-5 [&_h2]:mt-9 [&_h2]:mb-4 [&_h2]:font-serif [&_h2]:text-3xl [&_h2]:text-[#153e35] [&_h3]:mt-7 [&_h3]:mb-3 [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:text-[#153e35] [&_a]:text-[#a44327] [&_a]:underline [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:list-decimal [&_ol]:pl-6 [&_li]:mb-2"
                     dangerouslySetInnerHTML={{ __html: html(f.answer) }}
                   />
                 </details>
@@ -284,9 +339,14 @@ function TourDetail({ s }: { s: Tour }) {
             </section>
           )}
         </article>
-        <aside id="availability" className="booking">
-          <span className="eyebrow accent">PLAN YOUR EXPERIENCE</span>
-          <div className="booking-price">
+        <aside
+          id="availability"
+          className="scroll-mt-24 rounded-3xl border border-stone-200 bg-white p-7 shadow-xl shadow-stone-900/5 lg:sticky lg:top-8 [&>h2]:text-2xl"
+        >
+          <span className="mb-4 block text-[10px] font-bold tracking-[0.2em] uppercase text-[#a44327]">
+            PLAN YOUR EXPERIENCE
+          </span>
+          <div className="mb-6 flex flex-wrap items-baseline gap-2 [&_strong]:text-4xl [&_strong]:font-semibold [&_small]:text-xs [&_span]:text-xs [&_span]:text-stone-500">
             <small>From</small>
             <strong>{money(s)}</strong>
             <span>{Number(s.price) > 0 ? "per person" : ""}</span>
@@ -294,16 +354,19 @@ function TourDetail({ s }: { s: Tour }) {
           <h2>Check availability</h2>
           <Inquiry title={s.title} url={origin + route(s)} />
           <a
-            className="text-link"
+            className="inline-flex items-center gap-2 border-b border-[#b34c2f]/50 pb-1 text-sm font-semibold text-[#153e35] transition hover:text-[#b34c2f]"
             href={`mailto:Desertbrise@gmail.com?subject=${encodeURIComponent("Booking inquiry: " + s.title)}`}
           >
             Prefer email? Contact our team ↗
           </a>
         </aside>
       </div>
-      <div className="mobile-booking">
+      <div className="fixed inset-x-0 bottom-0 z-40 flex items-center justify-between gap-3 border-t border-stone-200 bg-white p-4 shadow-lg lg:hidden [&>strong]:text-xl">
         <strong>{money(s)}</strong>
-        <a className="button" href="#availability">
+        <a
+          className="inline-flex min-h-12 items-center justify-center gap-3 rounded-full bg-[#b34c2f] px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-[#913c24] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#b34c2f]"
+          href="#availability"
+        >
           Check availability
         </a>
       </div>

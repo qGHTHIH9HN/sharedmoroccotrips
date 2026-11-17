@@ -1,60 +1,107 @@
 import Link from "next/link";
 import Image from "next/image";
+import {
+  ArrowUpRight,
+  ArrowRight,
+  Search,
+  MapPin,
+  Compass,
+  Users,
+  Check,
+  MessageCircle,
+} from "lucide-react";
 import { catalogue, category, image } from "@/lib/content";
 import TourCard from "@/components/TourCard";
+const wrap = "mx-auto max-w-7xl px-5 sm:px-8 lg:px-12";
+const eyebrow =
+  "mb-4 flex items-center gap-3 text-[10px] font-semibold tracking-[0.2em] uppercase text-[#a44327]";
+const button =
+  "inline-flex min-h-12 items-center justify-center gap-3 rounded-full bg-[#b34c2f] px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-[#913c24]";
 export default async function Home() {
   const c = await catalogue();
-  const desired = [
+  const popular = [
     "shared-marrakech-merzouga-desert-tour-3-days",
     "shared-desert-tour-marrakech-to-fes-3-days",
     "shared-marrakech-erg-chigaga-desert-tour-3-days",
-  ];
-  const popular = desired
+  ]
     .map((slug) => c.services.find((s) => s.slug === slug))
     .filter((s) => s !== undefined);
   const trips = c.services
     .filter((s) => category(s) === "Day trips")
     .slice(0, 3);
-  const hero = image(
-    "public/assets/images/intent/marrakech/sahara-morocco.jpg",
-  );
   return (
     <main id="main">
-      <section className="hero">
-        <Image
-          src={hero}
-          alt="Sahara dunes in southern Morocco"
-          fill
-          priority
-          sizes="100vw"
-        />
-        <div className="hero-shade" />
-        <div className="hero-content">
-          <span className="eyebrow">SHARED JOURNEYS. LOCAL KNOWLEDGE.</span>
-          <h1>
-            A little further.
-            <br />A lot more Morocco.
+      <section className="relative mx-3 overflow-hidden rounded-3xl bg-[#153e35] text-white sm:mx-5 lg:mx-7">
+        <div className="absolute inset-0">
+          <Image
+            src={image(
+              "public/assets/images/intent/marrakech/sahara-morocco.jpg",
+            )}
+            alt="Golden Sahara dunes in southern Morocco"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-linear-to-r from-[#102b23]/85 via-[#102b23]/35 to-black/5" />
+          <div className="absolute inset-0 bg-linear-to-t from-[#102b23]/30 to-transparent" />
+        </div>
+        <div
+          className={
+            wrap + " relative pt-20 pb-36 sm:pt-24 sm:pb-40 lg:pt-28 lg:pb-44"
+          }
+        >
+          <span className="mb-6 inline-flex items-center gap-2.5 rounded-full border border-white/25 bg-white/5 px-4 py-2 text-[9px] font-medium tracking-[0.18em] uppercase backdrop-blur-sm">
+            <Compass className="size-3.5" />
+            Shared journeys. Local knowledge.
+          </span>
+          <h1 className="max-w-3xl font-serif text-[52px]! leading-[1.02]! tracking-[-0.045em]! text-white sm:text-7xl! lg:text-[94px]!">
+            Morocco is better
+            <br />
+            <span className="text-[#f0d4a5] italic">together.</span>
           </h1>
-          <p>
-            Cross the Atlas, follow the coast or sleep beside the Sahara dunes.
-            Find your next experience—and people to share it with.
+          <p className="mt-7 max-w-[390px] text-sm leading-7 text-white/80 sm:text-base">
+            Sahara nights, mountain roads and ocean air. Discover Morocco with a
+            local team—and a few new friends along the way.
           </p>
-          <Link className="button light" href="/tours">
-            Find your Morocco experience ↗
+          <Link
+            className="mt-7 inline-flex items-center gap-3 border-b border-white/50 pb-2 text-xs font-medium text-white"
+            href="/tours"
+          >
+            Find your next experience
+            <ArrowUpRight className="size-4" />
           </Link>
         </div>
-        <span className="hero-caption">THE SAHARA · SOUTHERN MOROCCO</span>
+        <div className="absolute right-7 bottom-20 hidden items-center gap-3 text-[9px] tracking-[0.18em] text-white/70 uppercase md:flex">
+          <span className="h-px w-9 bg-white/50" />
+          The Sahara, southern Morocco
+        </div>
       </section>
-      <div className="search-wrap">
-        <form action="/tours" className="search">
-          <label>
-            Where do you want to go?
-            <input name="q" placeholder="Try Merzouga, Essaouira, Agafay…" />
+      <div className={wrap + " relative z-10 -mt-12"}>
+        <form
+          action="/tours"
+          className="grid gap-5 rounded-2xl border border-stone-200/60 bg-white p-5 shadow-xl shadow-[#153e35]/6 sm:p-7 md:grid-cols-[1.2fr_1fr_auto] md:items-center md:gap-8"
+        >
+          <label className="block">
+            <span className="mb-2 flex items-center gap-2 text-[10px] font-semibold tracking-wide text-[#153e35]">
+              <MapPin className="size-3.5" />
+              Where would you like to go?
+            </span>
+            <input
+              className="w-full border-0 bg-transparent py-1 text-sm text-stone-600 outline-offset-4 placeholder:text-stone-400"
+              name="q"
+              placeholder="Merzouga, Essaouira, Agafay…"
+            />
           </label>
-          <label>
-            Your kind of trip
-            <select name="category">
-              <option value="">All experiences</option>
+          <label className="block border-t border-stone-100 pt-4 md:border-t-0 md:border-l md:pt-0 md:pl-7">
+            <span className="mb-2 block text-[10px] font-semibold tracking-wide">
+              Your kind of experience
+            </span>
+            <select
+              className="w-full bg-transparent py-1 text-sm text-stone-500 outline-offset-4"
+              name="category"
+            >
+              <option value="">Explore everything</option>
               {[
                 "Desert tours",
                 "Day trips",
@@ -66,59 +113,89 @@ export default async function Home() {
               ))}
             </select>
           </label>
-          <button className="button" type="submit">
-            Explore trips ↗
+          <button className={button} type="submit">
+            <Search className="size-4" />
+            Find my trip
           </button>
         </form>
       </div>
-      <div className="trust-strip">
-        <span>✓ Local Moroccan team</span>
-        <span>✓ Clear prices in euros</span>
-        <span>✓ Shared & private options</span>
-        <span>✓ Help choosing your route</span>
+      <div
+        className={
+          wrap +
+          " grid grid-cols-2 gap-x-6 gap-y-4 border-b border-stone-200/70 py-7 text-[10px] font-medium text-stone-500 sm:text-xs md:grid-cols-4"
+        }
+      >
+        {[
+          "Local Moroccan team",
+          "Clear prices in euros",
+          "Shared & private options",
+          "Help with every detail",
+        ].map((s) => (
+          <span className="flex items-center justify-center gap-2" key={s}>
+            <Check className="size-3.5 text-[#a44327]" />
+            {s}
+          </span>
+        ))}
       </div>
-      <section className="section">
-        <div className="section-heading">
+      <section className={wrap + " py-16 lg:py-24"}>
+        <div className="mb-9 flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <div>
-            <span className="eyebrow accent">START WITH THE SAHARA</span>
-            <h2>
-              Big landscapes.
+            <span className={eyebrow}>
+              <span className="h-px w-7 bg-[#a44327]" />
+              Start with the Sahara
+            </span>
+            <h2 className="mb-0! font-serif text-[38px]! leading-[1.1]! sm:text-5xl!">
+              A road worth taking.
               <br />
-              Unforgettable journeys.
+              <span className="text-[#9c593b] italic">
+                A desert worth sharing.
+              </span>
             </h2>
           </div>
-          <div>
-            <p>
-              Different routes, different rhythms. Choose the desert journey
-              that fits your time in Morocco.
+          <div className="max-w-xs">
+            <p className="mb-5 text-sm leading-7 text-stone-500">
+              Through the Atlas, past the kasbahs and into the dunes. Choose the
+              journey that fits your days.
             </p>
-            <Link className="text-link" href="/tours?category=Desert+tours">
-              Explore desert tours ↗
+            <Link
+              className="inline-flex items-center gap-3 text-xs font-semibold"
+              href="/tours?category=Desert+tours"
+            >
+              Explore Sahara tours
+              <ArrowRight className="size-4" />
             </Link>
           </div>
         </div>
-        <div className="grid">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {popular.map((s) => (
             <TourCard key={s.id} tour={s} />
           ))}
         </div>
       </section>
-      <section className="explore-section">
-        <div className="section">
-          <div className="section-heading">
+      <section className="bg-[#f0eee6] py-16 lg:py-20">
+        <div className={wrap}>
+          <div className="mb-9 flex flex-col justify-between gap-4 md:flex-row md:items-end">
             <div>
-              <span className="eyebrow accent">MAKE IT YOUR MOROCCO</span>
-              <h2>What will you discover?</h2>
+              <span className={eyebrow}>
+                Different places. Different possibilities.
+              </span>
+              <h2 className="mb-0! text-[38px]! sm:text-5xl!">
+                Find your kind of Morocco.
+              </h2>
             </div>
-            <p>
-              From an afternoon in Marrakech to a journey across the country.
-            </p>
+            <Link
+              className="inline-flex items-center gap-3 text-xs font-semibold"
+              href="/tours"
+            >
+              Browse all experiences
+              <ArrowRight className="size-4" />
+            </Link>
           </div>
-          <div className="category-grid">
+          <div className="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4">
             {[
               [
                 "Desert tours",
-                "The dunes are calling",
+                "Follow the dunes",
                 "public/assets/images/intent/marrakech/merzouga.jpg",
               ],
               [
@@ -128,79 +205,128 @@ export default async function Home() {
               ],
               [
                 "Morocco circuits",
-                "See how it all connects",
+                "Take the longer road",
                 "public/assets/images/intent/tangier/chefchaouen.jpg",
               ],
               [
                 "Activities",
-                "Make room for something new",
+                "Make a little discovery",
                 "public/assets/images/destinations/marrakech.webp",
               ],
             ].map(([cat, label, src]) => (
               <Link
+                className="group relative h-64 overflow-hidden rounded-2xl sm:h-80"
                 href={`/tours?category=${encodeURIComponent(cat)}`}
-                className="category-card"
                 key={cat}
               >
                 <Image
                   src={image(src)}
                   alt={cat}
                   fill
-                  sizes="(max-width:640px) 80vw,25vw"
+                  sizes="(max-width:1024px) 50vw,25vw"
+                  className="object-cover transition duration-700 group-hover:scale-105"
                 />
-                <div>
-                  <small>{label}</small>
-                  <h3>{cat} ↗</h3>
+                <div className="absolute inset-0 bg-linear-to-t from-[#102b23]/85 via-black/5 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 p-4 text-white sm:p-6">
+                  <span className="mb-2 block text-[9px] tracking-wide text-white/75">
+                    {label}
+                  </span>
+                  <div className="flex items-center justify-between gap-2">
+                    <h3 className="text-xl font-medium tracking-tight sm:text-2xl">
+                      {cat}
+                    </h3>
+                    <ArrowUpRight className="size-5 shrink-0" />
+                  </div>
                 </div>
               </Link>
             ))}
           </div>
         </div>
       </section>
-      <section className="section">
-        <div className="section-heading">
+      <section className={wrap + " py-16 lg:py-24"}>
+        <div className="mb-9 flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <div>
-            <span className="eyebrow accent">
-              ONE DAY. A DIFFERENT PERSPECTIVE.
-            </span>
-            <h2>Step outside Marrakech.</h2>
+            <span className={eyebrow}>One day. A whole new perspective.</span>
+            <h2 className="mb-0! text-[38px]! sm:text-5xl!">
+              Outside the city,
+              <br />
+              <span className="text-[#9c593b] italic">
+                another Morocco awaits.
+              </span>
+            </h2>
           </div>
-          <Link className="text-link" href="/tours?category=Day+trips">
-            See all day trips ↗
+          <Link
+            className="inline-flex items-center gap-3 text-xs font-semibold"
+            href="/tours?category=Day+trips"
+          >
+            Discover day trips
+            <ArrowRight className="size-4" />
           </Link>
         </div>
-        <div className="grid">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {trips.map((s) => (
             <TourCard key={s.id} tour={s} />
           ))}
         </div>
       </section>
-      <section className="local-banner">
-        <div>
-          <span className="eyebrow">LET’S FIND YOUR ROUTE</span>
-          <h2>
-            A local conversation.
-            <br />A better trip.
-          </h2>
-          <p>
-            Unsure which desert, how many days or where to start? Tell us your
-            dates and what you want to experience. Our team will help you
-            choose.
-          </p>
-          <Link className="button light" href="/contact-us">
-            Talk to our team ↗
-          </Link>
-        </div>
-        <div className="local-note">
-          <span>01</span>
-          <h3>Choose your experience</h3>
-          <p>Compare the route, travel time and what’s included.</p>
-          <span>02</span>
-          <h3>Check your dates</h3>
-          <p>Ask our team to confirm availability and options.</p>
-          <span>03</span>
-          <h3>Travel with everything clear</h3>
-          <p>Receive your confirmed arrangements before departure.</p>
+      <section className={wrap + " pb-16 lg:pb-24"}>
+        <div className="grid overflow-hidden rounded-3xl bg-[#153e35] lg:grid-cols-2">
+          <div className="relative hidden min-h-[480px] lg:block">
+            <Image
+              src={image(
+                "public/assets/images/intent/marrakech/ait-ben-haddou.jpg",
+              )}
+              alt="Earthen kasbah architecture at Aït Benhaddou, Morocco"
+              fill
+              sizes="50vw"
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-linear-to-t from-[#102b23]/50 to-transparent" />
+            <span className="absolute bottom-8 left-8 text-[10px] tracking-[0.15em] text-white uppercase">
+              Aït Benhaddou · Along the way
+            </span>
+          </div>
+          <div className="p-8 text-white sm:p-12 lg:p-14">
+            <span className="mb-5 flex items-center gap-2 text-[10px] tracking-[0.18em] text-[#d8bc93] uppercase">
+              <Users className="size-4" />
+              Real people. Local knowledge.
+            </span>
+            <h2 className="text-[38px]! leading-[1.1]! text-white sm:text-5xl!">
+              Good journeys start
+              <br />
+              with a conversation.
+            </h2>
+            <p className="mt-6 max-w-md text-sm leading-7 text-white/65">
+              Not sure which desert, how many days or where to begin? Tell us
+              what you have in mind. Our team will help you find a route that
+              feels right.
+            </p>
+            <div className="mt-8 space-y-4 border-t border-white/15 pt-6">
+              {[
+                "Choose the route that fits your time",
+                "Check your dates and travel options",
+                "Get your arrangements clearly confirmed",
+              ].map((s, i) => (
+                <p
+                  key={s}
+                  className="flex items-center gap-4 text-xs text-white/80"
+                >
+                  <span className="font-mono text-[10px] text-[#d8bc93]">
+                    0{i + 1}
+                  </span>
+                  {s}
+                </p>
+              ))}
+            </div>
+            <Link
+              className="mt-9 inline-flex items-center gap-3 rounded-full bg-[#eed5b0] px-6 py-4 text-xs font-semibold text-[#153e35] transition hover:bg-white"
+              href="/contact-us"
+            >
+              <MessageCircle className="size-4" />
+              Talk to our local team
+              <ArrowUpRight className="size-4" />
+            </Link>
+          </div>
         </div>
       </section>
     </main>
