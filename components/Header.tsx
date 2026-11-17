@@ -1,15 +1,15 @@
 import Link from "next/link";
 import MobileMenu from "./MobileMenu";
-import { ArrowUpRight, Compass, Phone, MessageCircle } from "lucide-react";
+import { ArrowUpRight, Compass, Phone, MessageCircle, ArrowRight } from "lucide-react";
 const button =
-  "inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-[#153e35] px-5 py-3 text-xs font-semibold text-white transition hover:bg-[#245a4b]";
+  "inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#17362e] px-6 py-3 text-xs font-bold text-white transition hover:bg-[#285646]";
 function Brand() {
   return (
     <>
-      <span className="grid size-11 place-items-center rounded-full border border-[#153e35]/20">
+      <span className="grid size-12 place-items-center rounded-full border border-[#153e35]/20 bg-[#ede7da]">
         <Compass className="size-7 stroke-[1.25]" />
       </span>
-      <span className="text-[15px] font-extrabold tracking-[0.14em]">
+      <span className="text-[14px] font-extrabold tracking-[0.12em] sm:text-[16px]">
         SHARED MOROCCO
         <span className="mt-1 block text-[8px] font-semibold tracking-[0.29em]">
           TRIPS
@@ -21,14 +21,14 @@ function Brand() {
 export function Header() {
   return (
     <>
-      <div className="flex items-center justify-between bg-[#153e35] px-5 py-2.5 text-[10px] tracking-wide text-white/85 sm:px-8 lg:px-12">
+      <div className="flex items-center justify-between bg-[#17362e] px-6 py-3 text-[11px] tracking-wide text-white/85 sm:px-10 lg:px-14">
         <span>Locally planned. Shared with you.</span>
         <a className="flex items-center gap-2" href="tel:+212600454881">
           <Phone className="size-3" />
           +212 600 454 881
         </a>
       </div>
-      <header className="relative z-30 mx-auto flex max-w-[1440px] items-center justify-between gap-5 px-5 py-5 sm:px-8 lg:px-12">
+      <header className="relative z-30 mx-auto flex max-w-[1440px] items-center justify-between gap-5 px-6 py-5 sm:px-10 lg:px-14">
         <Link
           href="/"
           className="flex shrink-0 items-center gap-3"
@@ -37,30 +37,30 @@ export function Header() {
           <Brand />
         </Link>
         <nav
-          className="hidden items-center gap-7 text-xs font-medium lg:flex"
+          className="hidden items-center gap-8 text-[13px] font-semibold lg:flex"
           aria-label="Main navigation"
         >
           <Link className="transition hover:text-[#b34c2f]" href="/tours">
-            All experiences
+            Explore trips
           </Link>
           <Link
             className="transition hover:text-[#b34c2f]"
             href="/tours?category=Desert+tours"
           >
-            Sahara tours
+            Sahara journeys
           </Link>
           <Link
             className="transition hover:text-[#b34c2f]"
             href="/tours?category=Day+trips"
           >
-            Day trips
+            Day excursions
           </Link>
           <Link className="transition hover:text-[#b34c2f]" href="/blog">
-            Travel journal
+            Journal
           </Link>
         </nav>
         <Link className={button + " hidden sm:inline-flex"} href="/contact-us">
-          Let’s plan your trip
+          Plan your journey
           <ArrowUpRight className="size-4" />
         </Link>
         <MobileMenu />
@@ -98,7 +98,7 @@ export function Footer() {
               Day trips from Marrakech
             </Link>
             <Link href="/blog">Travel journal</Link>
-            <Link href="/about">Our local team</Link>
+            <Link href="/contact-us">Our local team</Link>
           </div>
         </div>
         <div>
