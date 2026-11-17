@@ -19,18 +19,18 @@ export default function MobileMenu() {
         <Menu className="size-5" />
       </summary>
       <nav
-        className="absolute inset-x-5 top-full flex flex-col gap-5 rounded-2xl border border-stone-200 bg-[#faf9f5] p-6 text-sm shadow-xl"
+        className="absolute inset-x-5 top-full flex flex-col gap-5 rounded-[24px] border border-[#17362e]/10 bg-[#faf7f0] p-7 text-sm font-semibold shadow-2xl"
         aria-label="Mobile navigation"
         onClick={(e) => {
           if ((e.target as HTMLElement).closest("a") && menu.current)
             menu.current.open = false;
         }}
       >
-        <Link href="/tours">All experiences</Link>
-        <Link href="/tours?category=Desert+tours">Sahara tours</Link>
-        <Link href="/tours?category=Day+trips">Day trips</Link>
+        <Link href="/tours">Explore all trips</Link>
+        <Link href="/tours?category=Desert+tours">Sahara desert journeys</Link>
+        <Link href="/tours?category=Day+trips">Day trips & excursions</Link>
         <Link href="/blog">Travel journal</Link>
-        <Link href="/contact-us">Talk to our local team</Link>
+        <Link className="rounded-full bg-[#17362e] px-5 py-4 text-center text-white" href="/contact-us">Plan your journey</Link>
       </nav>
     </details>
   );
