@@ -31,7 +31,7 @@ export default async function Home() {
     .slice(0, 3);
   return (
     <main id="main">
-      <section className="relative mx-3 overflow-hidden rounded-3xl bg-[#153e35] text-white sm:mx-5 lg:mx-7">
+      <section className="relative mx-2 min-h-[640px] overflow-hidden rounded-[28px] bg-[#153e35] text-white sm:mx-5 sm:rounded-[36px] lg:mx-7 lg:min-h-[720px]">
         <div className="absolute inset-0">
           <Image
             src={image(
@@ -43,12 +43,12 @@ export default async function Home() {
             sizes="100vw"
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-linear-to-r from-[#102b23]/85 via-[#102b23]/35 to-black/5" />
+          <div className="absolute inset-0 bg-linear-to-r from-[#071d19]/95 via-[#102b23]/65 to-black/15" />
           <div className="absolute inset-0 bg-linear-to-t from-[#102b23]/30 to-transparent" />
         </div>
         <div
           className={
-            wrap + " relative pt-20 pb-36 sm:pt-24 sm:pb-40 lg:pt-28 lg:pb-44"
+            wrap + " relative pt-24 pb-44 sm:pt-32 sm:pb-48 lg:pt-40 lg:pb-52"
           }
         >
           <span className="mb-6 inline-flex items-center gap-2.5 rounded-full border border-white/25 bg-white/5 px-4 py-2 text-[9px] font-medium tracking-[0.18em] uppercase backdrop-blur-sm">
@@ -56,19 +56,18 @@ export default async function Home() {
             Shared journeys. Local knowledge.
           </span>
           <h1 className="max-w-3xl font-serif text-[52px]! leading-[1.02]! tracking-[-0.045em]! text-white sm:text-7xl! lg:text-[94px]!">
-            Morocco is better
+            Discover Morocco.
             <br />
-            <span className="text-[#f0d4a5] italic">together.</span>
+            <span className="text-[#f0d4a5] italic">Share the journey.</span>
           </h1>
           <p className="mt-7 max-w-[390px] text-sm leading-7 text-white/80 sm:text-base">
-            Sahara nights, mountain roads and ocean air. Discover Morocco with a
-            local team—and a few new friends along the way.
+            From the Sahara dunes to the Atlas Mountains, explore thoughtfully planned small-group journeys with local insight, clear itineraries and room for discovery.
           </p>
           <Link
             className="mt-7 inline-flex items-center gap-3 border-b border-white/50 pb-2 text-xs font-medium text-white"
             href="/tours"
           >
-            Find your next experience
+            Explore our journeys
             <ArrowUpRight className="size-4" />
           </Link>
         </div>
@@ -80,7 +79,7 @@ export default async function Home() {
       <div className={wrap + " relative z-10 -mt-12"}>
         <form
           action="/tours"
-          className="grid gap-5 rounded-2xl border border-stone-200/60 bg-white p-5 shadow-xl shadow-[#153e35]/6 sm:p-7 md:grid-cols-[1.2fr_1fr_auto] md:items-center md:gap-8"
+          className="grid gap-5 rounded-[24px] border border-stone-200/60 bg-white p-6 shadow-2xl shadow-[#153e35]/15 sm:p-8 md:grid-cols-[1.2fr_1fr_auto] md:items-center md:gap-8"
         >
           <label className="block">
             <span className="mb-2 flex items-center gap-2 text-[10px] font-semibold tracking-wide text-[#153e35]">
@@ -122,14 +121,14 @@ export default async function Home() {
       <div
         className={
           wrap +
-          " grid grid-cols-2 gap-x-6 gap-y-4 border-b border-stone-200/70 py-7 text-[10px] font-medium text-stone-500 sm:text-xs md:grid-cols-4"
+          " grid grid-cols-2 gap-x-6 gap-y-4 border-b border-stone-200/70 py-9 text-[10px] font-medium text-stone-500 sm:text-xs md:grid-cols-4"
         }
       >
         {[
-          "Local Moroccan team",
-          "Clear prices in euros",
-          "Shared & private options",
-          "Help with every detail",
+          "Locally planned journeys",
+          "Transparent tour information",
+          "Shared and private travel",
+          "Talk directly to our team",
         ].map((s) => (
           <span className="flex items-center justify-center gap-2" key={s}>
             <Check className="size-3.5 text-[#a44327]" />
@@ -145,10 +144,10 @@ export default async function Home() {
               Start with the Sahara
             </span>
             <h2 className="mb-0! font-serif text-[38px]! leading-[1.1]! sm:text-5xl!">
-              A road worth taking.
+              Journeys worth taking.
               <br />
               <span className="text-[#9c593b] italic">
-                A desert worth sharing.
+                Memories worth sharing.
               </span>
             </h2>
           </div>
@@ -177,10 +176,10 @@ export default async function Home() {
           <div className="mb-9 flex flex-col justify-between gap-4 md:flex-row md:items-end">
             <div>
               <span className={eyebrow}>
-                Different places. Different possibilities.
+                Explore by experience
               </span>
               <h2 className="mb-0! text-[38px]! sm:text-5xl!">
-                Find your kind of Morocco.
+                Your Morocco, your way.
               </h2>
             </div>
             <Link
@@ -246,7 +245,7 @@ export default async function Home() {
       <section className={wrap + " py-16 lg:py-24"}>
         <div className="mb-9 flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <div>
-            <span className={eyebrow}>One day. A whole new perspective.</span>
+            <span className={eyebrow}>Beyond the ordinary</span>
             <h2 className="mb-0! text-[38px]! sm:text-5xl!">
               Outside the city,
               <br />
