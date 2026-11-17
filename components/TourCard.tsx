@@ -7,9 +7,9 @@ export default function TourCard({ tour: s }: { tour: Row }) {
   return (
     <Link
       href={route(s)}
-      className="group flex h-full flex-col overflow-hidden rounded-[22px] border border-stone-200/70 bg-white transition duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-[#153e35]/8"
+      className="group flex h-full flex-col overflow-hidden rounded-[26px] border border-[#17362e]/10 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-[#153e35]/12 focus-visible:outline-2 focus-visible:outline-offset-4"
     >
-      <div className="relative aspect-[1.42] overflow-hidden">
+      <div className="relative aspect-[1.32] overflow-hidden">
         {src ? (
           <Image
             src={src}
@@ -28,7 +28,7 @@ export default function TourCard({ tour: s }: { tour: Row }) {
           {category(s)}
         </span>
       </div>
-      <div className="flex flex-1 flex-col p-6">
+      <div className="flex flex-1 flex-col p-5 sm:p-7">
         <div className="mb-3 flex flex-wrap items-center gap-x-4 gap-y-2 text-[10px] font-medium text-stone-500">
           <span className="flex items-center gap-1.5">
             <Clock3 className="size-3.5" />
@@ -43,14 +43,14 @@ export default function TourCard({ tour: s }: { tour: Row }) {
                 : "Check group format"}
           </span>
         </div>
-        <h3 className="mb-3 text-[19px] leading-snug font-semibold tracking-[-0.025em] text-[#153e35]">
+        <h3 className="mb-3 text-[21px] leading-snug font-semibold tracking-[-0.025em] text-[#153e35]">
           {s.title}
         </h3>
         <p className="mb-6 flex items-start gap-1.5 text-xs leading-6 text-stone-500">
           <MapPin className="mt-1 size-3.5 shrink-0" />
           <span>{s.location}</span>
         </p>
-        <div className="mt-auto flex items-center justify-between border-t border-stone-100 pt-5">
+        <div className="mt-auto flex items-center justify-between border-t border-stone-200/80 pt-5">
           <div>
             <span className="mr-1.5 text-[10px] text-stone-500">From</span>
             <strong className="text-2xl font-semibold tracking-tight">
