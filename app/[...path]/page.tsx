@@ -109,12 +109,12 @@ function TourDetail({ s }: { s: Tour }) {
   const stays = s.accommodations.filter((x) => Number(x.is_active) !== 0);
   return (
     <main id="main">
-      <div className="mx-auto w-full max-w-7xl px-5 py-14 sm:px-8 lg:px-12 lg:py-20 pb-6 pt-8 [&_h1]:max-w-4xl [&_h1]:text-4xl sm:[&_h1]:text-5xl">
-        <div className="mb-7 text-xs leading-6 text-stone-500 [&_a:hover]:text-[#b34c2f]">
+      <div className="mx-auto w-full max-w-7xl px-6 pb-8 pt-10 sm:px-10 lg:px-14 lg:pt-16 [&_h1]:max-w-5xl [&_h1]:text-[clamp(2.8rem,5.5vw,5.8rem)] [&_h1]:leading-[1.03] [&_h1]:tracking-[-.045em]">
+        <div className="mb-9 text-xs leading-6 text-stone-500 [&_a:hover]:text-[#b34c2f]">
           <Link href="/">Home</Link> / <Link href="/tours">Experiences</Link> /{" "}
           {s.duration}
         </div>
-        <span className="mb-4 block text-[10px] font-bold tracking-[0.2em] uppercase text-[#a44327]">
+        <span className="mb-5 block text-xs font-bold tracking-[0.22em] uppercase text-[#a44327]">
           {s.group_type === "group"
             ? "SHARED EXPERIENCE"
             : s.group_type === "private"
@@ -126,7 +126,7 @@ function TourDetail({ s }: { s: Tour }) {
           {s.location}
         </p>
       </div>
-      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-3 px-5 sm:px-8 md:h-[500px] md:grid-cols-[2fr_1fr] md:grid-rows-2 lg:px-12">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-3 px-6 sm:px-10 md:h-[560px] md:grid-cols-[2fr_1fr] md:grid-rows-2 lg:px-14">
         <div className="relative min-h-80 overflow-hidden rounded-[28px] md:row-span-2 [&:only-child]:col-span-full [&_img]:object-cover">
           {hero && (
             <Image
@@ -152,7 +152,7 @@ function TourDetail({ s }: { s: Tour }) {
           </div>
         ))}
       </div>
-      <div className="mx-auto w-full max-w-7xl px-5 py-14 sm:px-8 lg:px-12 lg:py-20 grid items-start gap-10 pt-8 lg:grid-cols-[minmax(0,1fr)_350px]">
+      <div className="mx-auto grid w-full max-w-7xl items-start gap-12 px-6 pb-24 pt-12 sm:px-10 lg:grid-cols-[minmax(0,1fr)_380px] lg:gap-16 lg:px-14 lg:pt-16">
         <article>
           <div className="grid grid-cols-2 gap-6 rounded-[24px] border border-[#17362e]/10 bg-[#f0eee6] p-7 [&_small]:mb-2 [&_small]:block [&_small]:text-xs [&_small]:text-stone-500 [&_strong]:text-sm [&_strong]:font-medium [&>div:last-child]:col-span-2">
             <div>
@@ -169,7 +169,7 @@ function TourDetail({ s }: { s: Tour }) {
             </div>
           </div>
           <nav
-            className="mt-6 flex flex-wrap gap-x-7 gap-y-3 border-b border-stone-200 py-5 text-sm font-semibold [&_a:hover]:text-[#b34c2f]"
+            className="sticky top-0 z-20 mt-8 flex flex-wrap gap-x-7 gap-y-3 border-b border-stone-200 bg-[#faf7f0]/95 py-5 text-sm font-semibold backdrop-blur-md [&_a:hover]:text-[#b34c2f]"
             aria-label="Tour sections"
           >
             <a href="#overview">Overview</a>
@@ -180,7 +180,7 @@ function TourDetail({ s }: { s: Tour }) {
           </nav>
           <section
             id="overview"
-            className="scroll-mt-24 border-b border-stone-200 py-9 [&>h2]:text-3xl"
+            className="scroll-mt-28 border-b border-stone-200 py-12 [&>h2]:text-[clamp(2rem,3vw,3rem)]"
           >
             <h2>Your experience</h2>
             <p className="mb-6 text-lg leading-relaxed text-stone-600">
@@ -239,7 +239,7 @@ function TourDetail({ s }: { s: Tour }) {
               {stays.map((a, i) => (
                 <div
                   key={i}
-                  className="mb-5 overflow-hidden rounded-2xl border border-stone-200 bg-white p-5 [&_h3]:mb-2 [&_h3]:text-xl [&_p]:mt-3 [&_p]:text-sm [&_p]:text-stone-600"
+                  className="mb-6 overflow-hidden rounded-[24px] border border-stone-200 bg-white p-7 [&_h3]:mb-2 [&_h3]:text-xl [&_p]:mt-3 [&_p]:text-sm [&_p]:text-stone-600"
                 >
                   {image(a.image_url) && (
                     <div className="relative mb-5 h-56 overflow-hidden rounded-xl [&_img]:object-cover">
@@ -341,7 +341,7 @@ function TourDetail({ s }: { s: Tour }) {
         </article>
         <aside
           id="availability"
-          className="scroll-mt-24 rounded-[28px] border border-[#17362e]/10 bg-white p-7 shadow-2xl shadow-[#17362e]/10 lg:sticky lg:top-8 [&>h2]:text-2xl"
+          className="scroll-mt-28 rounded-[28px] border border-[#17362e]/10 bg-white p-8 shadow-2xl shadow-[#17362e]/10 lg:sticky lg:top-8 [&>h2]:text-2xl"
         >
           <span className="mb-4 block text-[10px] font-bold tracking-[0.2em] uppercase text-[#a44327]">
             PLAN YOUR EXPERIENCE
@@ -351,7 +351,7 @@ function TourDetail({ s }: { s: Tour }) {
             <strong>{money(s)}</strong>
             <span>{Number(s.price) > 0 ? "per person" : ""}</span>
           </div>
-          <h2>Check availability</h2>
+          <h2>Make this journey yours</h2><p className="mb-6 text-sm leading-7 text-stone-500">Choose a preferred date and tell us who is travelling. Our local team will confirm the details with you.</p>
           <Inquiry title={s.title} url={origin + route(s)} />
           <a
             className="inline-flex items-center gap-2 border-b border-[#b34c2f]/50 pb-1 text-sm font-semibold text-[#153e35] transition hover:text-[#b34c2f]"
@@ -362,7 +362,7 @@ function TourDetail({ s }: { s: Tour }) {
         </aside>
       </div>
       <div className="fixed inset-x-0 bottom-0 z-40 flex items-center justify-between gap-3 border-t border-stone-200 bg-white/95 p-4 pb-[max(1rem,env(safe-area-inset-bottom))] shadow-lg backdrop-blur-md lg:hidden [&>strong]:text-xl">
-        <strong>{money(s)}</strong>
+        <div><span className="block text-[10px] text-stone-500">From</span><strong>{money(s)}</strong></div>
         <a
           className="inline-flex min-h-12 items-center justify-center gap-3 rounded-full bg-[#b34c2f] px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-[#913c24] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#b34c2f]"
           href="#availability"
