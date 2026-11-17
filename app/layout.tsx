@@ -3,8 +3,8 @@ import { Header, Footer } from "@/components/Header";
 import "./tailwind.css";
 export const metadata: Metadata = {
   title: {
-    default: "Shared Morocco Tours & Experiences | Morocco Tour Marrakech",
-    template: "%s | Morocco Tour Marrakech",
+    default: "Shared Morocco Tours & Experiences | Shared Morocco Trips",
+    template: "%s | Shared Morocco Trips",
   },
   description:
     "Find shared Sahara tours, Morocco circuits, day trips and Marrakech activities. Compare routes and prices, then check availability with our local team.",
