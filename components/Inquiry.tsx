@@ -11,7 +11,7 @@ export default function Inquiry({
   const [people, setPeople] = useState("2");
   const [message, setMessage] = useState("");
   const [ready, setReady] = useState(false);
-  const query = `Hello Morocco Tour Marrakech, I would like to check availability for ${title}.\nPreferred date: ${date}\nTravelers: ${people}\n${message}\nTour: ${url}`;
+  const query = `Hello Shared Morocco Trips, I would like to check availability for ${title}.\nPreferred date: ${date}\nTravelers: ${people}\n${message}\nTour: ${url}`;
   return (
     <form
       onSubmit={(e) => {
@@ -73,11 +73,11 @@ export default function Inquiry({
           className="inline-flex min-h-12 items-center justify-center gap-3 rounded-full bg-[#b34c2f] px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-[#913c24] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#b34c2f]"
           type="submit"
         >
-          Prepare availability request ↗
+          Continue to WhatsApp ↗
         </button>
       )}
       <p className="my-4 text-xs leading-6 text-stone-500">
-        Send your request through WhatsApp. Our team will confirm availability,
+        Your request opens WhatsApp for you to review and send. Our team will confirm availability,
         the final price and arrangements. This does not reserve a place.
       </p>
     </form>
