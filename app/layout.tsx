@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Header, Footer } from "@/components/Header";
+import RouteChrome from "@/components/RouteChrome";
 import "@fontsource-variable/dm-sans";
 import "@fontsource/cormorant-garamond/400.css";
 import "@fontsource/cormorant-garamond/400-italic.css";
@@ -26,9 +27,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         >
           Skip to content
         </a>
-        <Header />
+        <RouteChrome>
+          <Header />
+        </RouteChrome>
         {children}
-        <Footer />
+        <RouteChrome>
+          <Footer />
+        </RouteChrome>
       </body>
     </html>
   );
