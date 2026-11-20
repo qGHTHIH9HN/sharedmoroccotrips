@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowUpRight, Clock3, Users, MapPin } from "lucide-react";
-import { Row, image, money, route, category } from "@/lib/content";
+import { Row, image, money, hasPrice, route, category } from "@/lib/content";
 export default function TourCard({ tour: s }: { tour: Row }) {
   const src = image(s.featured_image);
   return (
@@ -52,11 +52,11 @@ export default function TourCard({ tour: s }: { tour: Row }) {
         </p>
         <div className="mt-auto flex items-center justify-between border-t border-stone-200/80 pt-5">
           <div>
-            <span className="mr-1.5 text-[10px] text-stone-500">From</span>
+            {hasPrice(s) && <span className="mr-1.5 text-[10px] text-stone-500">From</span>}
             <strong className="text-2xl font-semibold tracking-tight">
               {money(s)}
             </strong>
-            {Number(s.price) > 0 && (
+            {hasPrice(s) && (
               <span className="ml-1.5 text-[10px] text-stone-400">
                 / person
               </span>

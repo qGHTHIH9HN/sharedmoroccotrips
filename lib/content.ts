@@ -88,9 +88,12 @@ export function route(s: Row) {
   const base = String(s.url_base || "tour").replace(/^\/+|\/+$/g, "");
   return `/${base}/${encodeURIComponent(s.slug)}`;
 }
+export function hasPrice(s: Row) {
+  return Number.isFinite(Number(s.price)) && Number(s.price) > 0;
+}
 export function money(s: Row) {
   const n = Number(s.price);
-  if (!Number.isFinite(n) || n <= 0) return "Price on request";
+  if (!hasPrice(s)) return "Price on request";
   return new Intl.NumberFormat("en-GB", {
     style: "currency",
     currency: s.currency || "EUR",

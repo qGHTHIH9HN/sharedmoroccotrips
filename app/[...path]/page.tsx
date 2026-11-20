@@ -7,6 +7,7 @@ import {
   tour,
   image,
   money,
+  hasPrice,
   html,
   text,
   route,
@@ -347,9 +348,9 @@ function TourDetail({ s }: { s: Tour }) {
             PLAN YOUR EXPERIENCE
           </span>
           <div className="mb-6 flex flex-wrap items-baseline gap-2 [&_strong]:text-4xl [&_strong]:font-semibold [&_small]:text-xs [&_span]:text-xs [&_span]:text-stone-500">
-            <small>From</small>
+            {hasPrice(s) && <small>From</small>}
             <strong>{money(s)}</strong>
-            <span>{Number(s.price) > 0 ? "per person" : ""}</span>
+            <span>{hasPrice(s) ? "per person" : ""}</span>
           </div>
           <h2>Make this journey yours</h2><p className="mb-6 text-sm leading-7 text-stone-500">Choose a preferred date and tell us who is travelling. Our local team will confirm the details with you.</p>
           <Inquiry title={s.title} url={origin + route(s)} />
@@ -362,7 +363,7 @@ function TourDetail({ s }: { s: Tour }) {
         </aside>
       </div>
       <div className="fixed inset-x-0 bottom-0 z-40 flex items-center justify-between gap-3 border-t border-stone-200 bg-white/95 p-4 pb-[max(1rem,env(safe-area-inset-bottom))] shadow-lg backdrop-blur-md lg:hidden [&>strong]:text-xl">
-        <div><span className="block text-[10px] text-stone-500">From</span><strong>{money(s)}</strong></div>
+        <div>{hasPrice(s) && <span className="block text-[10px] text-stone-500">From</span>}<strong>{money(s)}</strong></div>
         <a
           className="inline-flex min-h-12 items-center justify-center gap-3 rounded-full bg-[#b34c2f] px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-[#913c24] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#b34c2f]"
           href="#availability"
