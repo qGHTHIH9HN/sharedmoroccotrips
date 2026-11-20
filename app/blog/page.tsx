@@ -10,7 +10,7 @@ export default async function Blog() {
       className="mx-auto w-full max-w-7xl px-5 py-14 sm:px-8 lg:px-12 lg:py-20"
     >
       <div className="mb-10 [&_p]:max-w-2xl [&_p]:text-lg [&_p]:text-stone-500">
-        <span className="mb-4 block text-[10px] font-bold tracking-[0.2em] uppercase text-[#df4a20]">
+        <span className="mb-4 block text-[10px] font-bold tracking-[0.2em] uppercase text-[#8f734d]">
           THE TRAVEL JOURNAL
         </span>
         <h1>A little local knowledge.</h1>
@@ -20,7 +20,7 @@ export default async function Blog() {
         {c.posts.map((p) => (
           <Link
             href={`/blog/${p.slug}`}
-            className="group flex flex-col overflow-hidden rounded-3xl border border-stone-200/80 bg-white transition duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-stone-900/5"
+            className="group flex flex-col overflow-hidden rounded-3xl border border-stone-200/80 bg-[#f8f7f2] transition duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-stone-900/5"
             key={p.id}
           >
             {image(p.featured_image) && (
@@ -34,12 +34,12 @@ export default async function Blog() {
               </div>
             )}
             <div className="flex flex-1 flex-col p-6 [&_h2]:mb-4 [&_h2]:text-2xl [&_p]:mb-5 [&_p]:text-sm [&_p]:leading-7 [&_p]:text-stone-500">
-              <span className="mb-4 block text-[10px] font-bold tracking-[0.2em] uppercase text-[#df4a20]">
+              <span className="mb-4 block text-[10px] font-bold tracking-[0.2em] uppercase text-[#8f734d]">
                 {text(p.category) || "Morocco travel"}
               </span>
               <h2>{p.title}</h2>
               <p>{text(p.excerpt)}</p>
-              <span className="inline-flex items-center gap-2 border-b border-[#ff6435]/50 pb-1 text-sm font-semibold text-[#172033] transition hover:text-[#ff6435]">
+              <span className="inline-flex items-center gap-2 border-b border-[#33483c]/50 pb-1 text-sm font-semibold text-[#33483c] transition hover:text-[#33483c]">
                 Read the story ↗
               </span>
             </div>

@@ -34,22 +34,22 @@ export default async function Tours({
       (a, b) => Number(a.duration_days || 1) - Number(b.duration_days || 1),
     );
   return (
-    <main id="main" className="bg-[#f7f8fa]">
-      <section className="border-b border-slate-200 bg-white">
+    <main id="main" className="bg-[#f8f7f2]">
+      <section className="border-b border-[#33483c]/15 bg-[#f8f7f2]">
         <div className="mx-auto max-w-[1400px] px-5 py-10 sm:px-8 lg:px-12">
-          <p className="mb-3 text-[10px] font-bold tracking-wider text-[#df4a20] uppercase">
+          <p className="mb-3 text-[10px] font-bold tracking-wider text-[#8f734d] uppercase">
             Your Morocco starts here
           </p>
-          <h1 className="mb-3! text-3xl! sm:text-5xl!">
-            Find your next adventure.
+          <h1 className="mb-3! font-serif! text-5xl! font-normal! sm:text-6xl!">
+            A journey for every curiosity.
           </h1>
-          <p className="max-w-xl text-sm leading-7 text-slate-500">
+          <p className="max-w-xl text-sm leading-7 text-[#788372]">
             From a few hours in Marrakech to a journey across the country.
             Compare experiences and find the one for you.
           </p>
           <form
             action="/tours"
-            className="mt-7 grid gap-3 sm:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1fr_auto] [&_label]:block [&_label]:text-[10px] [&_label]:font-semibold [&_label]:text-slate-500 [&_input]:mt-1.5 [&_input]:min-h-12 [&_input]:w-full [&_input]:rounded-lg [&_input]:border [&_input]:border-slate-200 [&_input]:bg-white [&_input]:px-3 [&_input]:text-xs [&_input]:text-slate-800 [&_select]:mt-1.5 [&_select]:min-h-12 [&_select]:w-full [&_select]:rounded-lg [&_select]:border [&_select]:border-slate-200 [&_select]:bg-white [&_select]:px-3 [&_select]:text-xs [&_select]:text-slate-800"
+            className="mt-7 grid gap-3 sm:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1fr_auto] [&_label]:block [&_label]:text-[10px] [&_label]:font-semibold [&_label]:text-[#788372] [&_input]:mt-1.5 [&_input]:min-h-12 [&_input]:w-full [&_input]:rounded-sm [&_input]:border [&_input]:border-[#33483c]/15 [&_input]:bg-[#f8f7f2] [&_input]:px-3 [&_input]:text-xs [&_input]:text-[#33483c] [&_select]:mt-1.5 [&_select]:min-h-12 [&_select]:w-full [&_select]:rounded-sm [&_select]:border [&_select]:border-[#33483c]/15 [&_select]:bg-[#f8f7f2] [&_select]:px-3 [&_select]:text-xs [&_select]:text-[#33483c]"
           >
             <label>
               Destination or keyword
@@ -92,7 +92,7 @@ export default async function Tours({
                 <option value="duration">Shortest first</option>
               </select>
             </label>
-            <button className="min-h-12 self-end rounded-lg bg-[#ff6435] px-6 text-xs font-bold text-white transition hover:bg-[#df4a20]">
+            <button className="min-h-12 self-end rounded-sm bg-[#33483c] px-6 text-xs font-bold text-white transition hover:bg-[#8f734d]">
               Show experiences
             </button>
           </form>
@@ -100,11 +100,11 @@ export default async function Tours({
       </section>
       <section className="mx-auto max-w-[1400px] px-5 py-8 sm:px-8 lg:px-12">
         <div className="mb-6 flex items-center justify-between gap-4">
-          <p className="text-sm text-slate-500">
-            <strong className="text-slate-900">{items.length}</strong>{" "}
+          <p className="text-sm text-[#788372]">
+            <strong className="text-[#33483c]">{items.length}</strong>{" "}
             experiences {q && <>matching “{q}”</>}
           </p>
-          <Link href="/tours" className="text-xs font-semibold text-[#df4a20]">
+          <Link href="/tours" className="text-xs font-semibold text-[#8f734d]">
             Reset filters
           </Link>
         </div>
@@ -115,14 +115,14 @@ export default async function Tours({
             ))}
           </div>
         ) : (
-          <div className="rounded-xl border border-slate-200 bg-white p-10 text-center">
+          <div className="rounded-sm border border-[#33483c]/15 bg-[#f8f7f2] p-10 text-center">
             <h2>No trips match just yet.</h2>
-            <p className="mb-6 text-sm text-slate-500">
+            <p className="mb-6 text-sm text-[#788372]">
               Try a different destination or ask our local team for help.
             </p>
             <Link
               href="/contact-us"
-              className="inline-flex rounded-lg bg-slate-950 px-5 py-3 text-xs font-bold text-white"
+              className="inline-flex rounded-sm bg-[#33483c] px-5 py-3 text-xs font-bold text-white"
             >
               Ask a local
             </Link>

@@ -19,7 +19,7 @@ export default function MobileMenu() {
         <Menu className="size-5" />
       </summary>
       <nav
-        className="absolute inset-x-5 top-full flex flex-col gap-5 rounded-xl border border-[#172033]/10 bg-[#ffffff] p-7 text-sm font-semibold shadow-2xl"
+        className="absolute inset-x-5 top-full flex flex-col gap-5 rounded-sm border border-[#33483c]/10 bg-[#ffffff] p-7 text-sm font-semibold shadow-2xl"
         aria-label="Mobile navigation"
         onClick={(e) => {
           if ((e.target as HTMLElement).closest("a") && menu.current)
@@ -31,7 +31,7 @@ export default function MobileMenu() {
         <Link href="/tours?category=Day+trips">Day trips & excursions</Link>
         <Link href="/blog">Travel journal</Link>
         <Link
-          className="rounded-lg bg-[#172033] px-5 py-4 text-center text-white"
+          className="rounded-sm bg-[#33483c] px-5 py-4 text-center text-white"
           href="/contact-us"
         >
           Plan your journey

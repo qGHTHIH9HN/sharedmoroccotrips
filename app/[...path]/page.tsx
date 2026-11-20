@@ -64,7 +64,7 @@ export default async function Detail({
         className="mx-auto w-full max-w-7xl px-5 py-14 sm:px-8 lg:px-12 lg:py-20 max-w-4xl [&>h1]:mt-6"
       >
         <Link
-          className="inline-flex items-center gap-2 border-b border-[#ff6435]/50 pb-1 text-sm font-semibold text-[#172033] transition hover:text-[#ff6435]"
+          className="inline-flex items-center gap-2 border-b border-[#33483c]/50 pb-1 text-sm font-semibold text-[#33483c] transition hover:text-[#33483c]"
           href="/"
         >
           Home
@@ -87,11 +87,11 @@ export default async function Detail({
           </div>
         )}
         <div
-          className="text-[15px] leading-8 text-stone-600 [&_p]:mb-5 [&_h2]:mt-9 [&_h2]:mb-4 [&_h2]:font-sans [&_h2]:text-3xl [&_h2]:text-[#172033] [&_h3]:mt-7 [&_h3]:mb-3 [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:text-[#172033] [&_a]:text-[#df4a20] [&_a]:underline [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:list-decimal [&_ol]:pl-6 [&_li]:mb-2"
+          className="text-[15px] leading-8 text-stone-600 [&_p]:mb-5 [&_h2]:mt-9 [&_h2]:mb-4 [&_h2]:font-sans [&_h2]:text-3xl [&_h2]:text-[#33483c] [&_h3]:mt-7 [&_h3]:mb-3 [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:text-[#33483c] [&_a]:text-[#8f734d] [&_a]:underline [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:list-decimal [&_ol]:pl-6 [&_li]:mb-2"
           dangerouslySetInnerHTML={{ __html: html(s.content) }}
         />
         <Link
-          className="inline-flex min-h-12 items-center justify-center gap-3 rounded-lg bg-[#ff6435] px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-[#df4a20] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#ff6435]"
+          className="inline-flex min-h-12 items-center justify-center gap-3 rounded-sm bg-[#33483c] px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-[#8f734d] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#33483c]"
           href="/tours"
         >
           Explore experiences ↗
@@ -111,11 +111,11 @@ function TourDetail({ s }: { s: Tour }) {
   return (
     <main id="main">
       <div className="mx-auto w-full max-w-7xl px-6 pb-8 pt-10 sm:px-10 lg:px-14 lg:pt-16 [&_h1]:max-w-5xl [&_h1]:text-[clamp(2rem,3.6vw,3.4rem)] [&_h1]:leading-[1.03] [&_h1]:tracking-[-.045em]">
-        <div className="mb-9 text-xs leading-6 text-stone-500 [&_a:hover]:text-[#ff6435]">
+        <div className="mb-9 text-xs leading-6 text-stone-500 [&_a:hover]:text-[#33483c]">
           <Link href="/">Home</Link> / <Link href="/tours">Experiences</Link> /{" "}
           {s.duration}
         </div>
-        <span className="mb-5 block text-xs font-bold tracking-[0.22em] uppercase text-[#df4a20]">
+        <span className="mb-5 block text-xs font-bold tracking-[0.22em] uppercase text-[#8f734d]">
           {s.group_type === "group"
             ? "SHARED EXPERIENCE"
             : s.group_type === "private"
@@ -128,7 +128,7 @@ function TourDetail({ s }: { s: Tour }) {
         </p>
       </div>
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-3 px-6 sm:px-10 md:h-[440px] md:grid-cols-[2fr_1fr] md:grid-rows-2 lg:px-14">
-        <div className="relative min-h-80 overflow-hidden rounded-2xl md:row-span-2 [&:only-child]:col-span-full [&_img]:object-cover">
+        <div className="relative min-h-80 overflow-hidden rounded-sm md:row-span-2 [&:only-child]:col-span-full [&_img]:object-cover">
           {hero && (
             <Image
               src={hero}
@@ -142,7 +142,7 @@ function TourDetail({ s }: { s: Tour }) {
         {photos.map((p, i) => (
           <div
             key={i}
-            className="relative hidden overflow-hidden rounded-xl md:block [&_img]:object-cover"
+            className="relative hidden overflow-hidden rounded-sm md:block [&_img]:object-cover"
           >
             <Image
               src={image(p.image_path)}
@@ -155,7 +155,7 @@ function TourDetail({ s }: { s: Tour }) {
       </div>
       <div className="mx-auto grid w-full max-w-7xl items-start gap-12 px-6 pb-24 pt-12 sm:px-10 lg:grid-cols-[minmax(0,1fr)_380px] lg:gap-16 lg:px-14 lg:pt-16">
         <article>
-          <div className="grid grid-cols-2 gap-6 rounded-xl border border-[#172033]/10 bg-[#f0eee6] p-7 [&_small]:mb-2 [&_small]:block [&_small]:text-xs [&_small]:text-stone-500 [&_strong]:text-sm [&_strong]:font-medium [&>div:last-child]:col-span-2">
+          <div className="grid grid-cols-2 gap-6 rounded-sm border border-[#33483c]/10 bg-[#f0eee6] p-7 [&_small]:mb-2 [&_small]:block [&_small]:text-xs [&_small]:text-stone-500 [&_strong]:text-sm [&_strong]:font-medium [&>div:last-child]:col-span-2">
             <div>
               <small>Duration</small>
               <strong>{s.duration}</strong>
@@ -170,7 +170,7 @@ function TourDetail({ s }: { s: Tour }) {
             </div>
           </div>
           <nav
-            className="sticky top-0 z-20 mt-8 flex flex-wrap gap-x-7 gap-y-3 border-b border-stone-200 bg-[#ffffff]/95 py-5 text-sm font-semibold backdrop-blur-md [&_a:hover]:text-[#ff6435]"
+            className="sticky top-0 z-20 mt-8 flex flex-wrap gap-x-7 gap-y-3 border-b border-stone-200 bg-[#ffffff]/95 py-5 text-sm font-semibold backdrop-blur-md [&_a:hover]:text-[#33483c]"
             aria-label="Tour sections"
           >
             <a href="#overview">Overview</a>
@@ -188,7 +188,7 @@ function TourDetail({ s }: { s: Tour }) {
               {text(s.hero_intro || s.excerpt)}
             </p>
             <div
-              className="text-[15px] leading-8 text-stone-600 [&_p]:mb-5 [&_h2]:mt-9 [&_h2]:mb-4 [&_h2]:font-sans [&_h2]:text-3xl [&_h2]:text-[#172033] [&_h3]:mt-7 [&_h3]:mb-3 [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:text-[#172033] [&_a]:text-[#df4a20] [&_a]:underline [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:list-decimal [&_ol]:pl-6 [&_li]:mb-2"
+              className="text-[15px] leading-8 text-stone-600 [&_p]:mb-5 [&_h2]:mt-9 [&_h2]:mb-4 [&_h2]:font-sans [&_h2]:text-3xl [&_h2]:text-[#33483c] [&_h3]:mt-7 [&_h3]:mb-3 [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:text-[#33483c] [&_a]:text-[#8f734d] [&_a]:underline [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:list-decimal [&_ol]:pl-6 [&_li]:mb-2"
               dangerouslySetInnerHTML={{ __html: html(s.content) }}
             />
           </section>
@@ -197,7 +197,7 @@ function TourDetail({ s }: { s: Tour }) {
               id="itinerary"
               className="scroll-mt-24 border-b border-stone-200 py-9 [&>h2]:text-3xl"
             >
-              <span className="mb-4 block text-[10px] font-bold tracking-[0.2em] uppercase text-[#df4a20]">
+              <span className="mb-4 block text-[10px] font-bold tracking-[0.2em] uppercase text-[#8f734d]">
                 THE JOURNEY
               </span>
               <h2>
@@ -210,14 +210,14 @@ function TourDetail({ s }: { s: Tour }) {
                   open={i === 0}
                 >
                   <summary>
-                    <span className="text-xs font-bold text-[#ff6435]">
+                    <span className="text-xs font-bold text-[#33483c]">
                       {String(d.day_number || i + 1).padStart(2, "0")}
                     </span>
                     <span>{text(d.title)}</span>
                     <span>+</span>
                   </summary>
                   <div
-                    className="pb-6 pl-9 text-[15px] leading-8 text-stone-600 [&_p]:mb-5 [&_h2]:mt-9 [&_h2]:mb-4 [&_h2]:font-sans [&_h2]:text-3xl [&_h2]:text-[#172033] [&_h3]:mt-7 [&_h3]:mb-3 [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:text-[#172033] [&_a]:text-[#df4a20] [&_a]:underline [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:list-decimal [&_ol]:pl-6 [&_li]:mb-2"
+                    className="pb-6 pl-9 text-[15px] leading-8 text-stone-600 [&_p]:mb-5 [&_h2]:mt-9 [&_h2]:mb-4 [&_h2]:font-sans [&_h2]:text-3xl [&_h2]:text-[#33483c] [&_h3]:mt-7 [&_h3]:mb-3 [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:text-[#33483c] [&_a]:text-[#8f734d] [&_a]:underline [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:list-decimal [&_ol]:pl-6 [&_li]:mb-2"
                     dangerouslySetInnerHTML={{
                       __html: html(d.details || d.description),
                     }}
@@ -240,10 +240,10 @@ function TourDetail({ s }: { s: Tour }) {
               {stays.map((a, i) => (
                 <div
                   key={i}
-                  className="mb-6 overflow-hidden rounded-xl border border-stone-200 bg-white p-7 [&_h3]:mb-2 [&_h3]:text-xl [&_p]:mt-3 [&_p]:text-sm [&_p]:text-stone-600"
+                  className="mb-6 overflow-hidden rounded-sm border border-stone-200 bg-[#f8f7f2] p-7 [&_h3]:mb-2 [&_h3]:text-xl [&_p]:mt-3 [&_p]:text-sm [&_p]:text-stone-600"
                 >
                   {image(a.image_url) && (
-                    <div className="relative mb-5 h-56 overflow-hidden rounded-xl [&_img]:object-cover">
+                    <div className="relative mb-5 h-56 overflow-hidden rounded-sm [&_img]:object-cover">
                       <Image
                         src={image(a.image_url)}
                         alt={text(a.name)}
@@ -258,7 +258,7 @@ function TourDetail({ s }: { s: Tour }) {
                       {text(a.location)} · {text(a.accommodation_type)}
                     </p>
                     <div
-                      className="text-[15px] leading-8 text-stone-600 [&_p]:mb-5 [&_h2]:mt-9 [&_h2]:mb-4 [&_h2]:font-sans [&_h2]:text-3xl [&_h2]:text-[#172033] [&_h3]:mt-7 [&_h3]:mb-3 [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:text-[#172033] [&_a]:text-[#df4a20] [&_a]:underline [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:list-decimal [&_ol]:pl-6 [&_li]:mb-2"
+                      className="text-[15px] leading-8 text-stone-600 [&_p]:mb-5 [&_h2]:mt-9 [&_h2]:mb-4 [&_h2]:font-sans [&_h2]:text-3xl [&_h2]:text-[#33483c] [&_h3]:mt-7 [&_h3]:mb-3 [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:text-[#33483c] [&_a]:text-[#8f734d] [&_a]:underline [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:list-decimal [&_ol]:pl-6 [&_li]:mb-2"
                       dangerouslySetInnerHTML={{ __html: html(a.description) }}
                     />
                     {Boolean(a.room_details) && <p>{text(a.room_details)}</p>}
@@ -290,7 +290,7 @@ function TourDetail({ s }: { s: Tour }) {
                 >
                   <h3>{text(x.title)}</h3>
                   <div
-                    className="text-[15px] leading-8 text-stone-600 [&_p]:mb-5 [&_h2]:mt-9 [&_h2]:mb-4 [&_h2]:font-sans [&_h2]:text-3xl [&_h2]:text-[#172033] [&_h3]:mt-7 [&_h3]:mb-3 [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:text-[#172033] [&_a]:text-[#df4a20] [&_a]:underline [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:list-decimal [&_ol]:pl-6 [&_li]:mb-2"
+                    className="text-[15px] leading-8 text-stone-600 [&_p]:mb-5 [&_h2]:mt-9 [&_h2]:mb-4 [&_h2]:font-sans [&_h2]:text-3xl [&_h2]:text-[#33483c] [&_h3]:mt-7 [&_h3]:mb-3 [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:text-[#33483c] [&_a]:text-[#8f734d] [&_a]:underline [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:list-decimal [&_ol]:pl-6 [&_li]:mb-2"
                     dangerouslySetInnerHTML={{ __html: html(x.details) }}
                   />
                 </div>
@@ -332,7 +332,7 @@ function TourDetail({ s }: { s: Tour }) {
                 >
                   <summary>{text(f.question)}</summary>
                   <div
-                    className="text-[15px] leading-8 text-stone-600 [&_p]:mb-5 [&_h2]:mt-9 [&_h2]:mb-4 [&_h2]:font-sans [&_h2]:text-3xl [&_h2]:text-[#172033] [&_h3]:mt-7 [&_h3]:mb-3 [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:text-[#172033] [&_a]:text-[#df4a20] [&_a]:underline [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:list-decimal [&_ol]:pl-6 [&_li]:mb-2"
+                    className="text-[15px] leading-8 text-stone-600 [&_p]:mb-5 [&_h2]:mt-9 [&_h2]:mb-4 [&_h2]:font-sans [&_h2]:text-3xl [&_h2]:text-[#33483c] [&_h3]:mt-7 [&_h3]:mb-3 [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:text-[#33483c] [&_a]:text-[#8f734d] [&_a]:underline [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:list-decimal [&_ol]:pl-6 [&_li]:mb-2"
                     dangerouslySetInnerHTML={{ __html: html(f.answer) }}
                   />
                 </details>
@@ -342,9 +342,9 @@ function TourDetail({ s }: { s: Tour }) {
         </article>
         <aside
           id="availability"
-          className="scroll-mt-28 rounded-2xl border border-[#172033]/10 bg-white p-8 shadow-2xl shadow-[#172033]/10 lg:sticky lg:top-8 [&>h2]:text-2xl"
+          className="scroll-mt-28 rounded-sm border border-[#33483c]/10 bg-[#f8f7f2] p-8 shadow-2xl shadow-[#33483c]/10 lg:sticky lg:top-8 [&>h2]:text-2xl"
         >
-          <span className="mb-4 block text-[10px] font-bold tracking-[0.2em] uppercase text-[#df4a20]">
+          <span className="mb-4 block text-[10px] font-bold tracking-[0.2em] uppercase text-[#8f734d]">
             PLAN YOUR EXPERIENCE
           </span>
           <div className="mb-6 flex flex-wrap items-baseline gap-2 [&_strong]:text-4xl [&_strong]:font-semibold [&_small]:text-xs [&_span]:text-xs [&_span]:text-stone-500">
@@ -359,14 +359,14 @@ function TourDetail({ s }: { s: Tour }) {
           </p>
           <Inquiry title={s.title} url={origin + route(s)} />
           <a
-            className="inline-flex items-center gap-2 border-b border-[#ff6435]/50 pb-1 text-sm font-semibold text-[#172033] transition hover:text-[#ff6435]"
+            className="inline-flex items-center gap-2 border-b border-[#33483c]/50 pb-1 text-sm font-semibold text-[#33483c] transition hover:text-[#33483c]"
             href={`mailto:Desertbrise@gmail.com?subject=${encodeURIComponent("Booking inquiry: " + s.title)}`}
           >
             Prefer email? Contact our team ↗
           </a>
         </aside>
       </div>
-      <div className="fixed inset-x-0 bottom-0 z-40 flex items-center justify-between gap-3 border-t border-stone-200 bg-white/95 p-4 pb-[max(1rem,env(safe-area-inset-bottom))] shadow-lg backdrop-blur-md lg:hidden [&>strong]:text-xl">
+      <div className="fixed inset-x-0 bottom-0 z-40 flex items-center justify-between gap-3 border-t border-stone-200 bg-[#f8f7f2]/95 p-4 pb-[max(1rem,env(safe-area-inset-bottom))] shadow-lg backdrop-blur-md lg:hidden [&>strong]:text-xl">
         <div>
           {hasPrice(s) && (
             <span className="block text-[10px] text-stone-500">From</span>
@@ -374,7 +374,7 @@ function TourDetail({ s }: { s: Tour }) {
           <strong>{money(s)}</strong>
         </div>
         <a
-          className="inline-flex min-h-12 items-center justify-center gap-3 rounded-lg bg-[#ff6435] px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-[#df4a20] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#ff6435]"
+          className="inline-flex min-h-12 items-center justify-center gap-3 rounded-sm bg-[#33483c] px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-[#8f734d] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#33483c]"
           href="#availability"
         >
           Check availability

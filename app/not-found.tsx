@@ -5,7 +5,7 @@ export default function NotFound() {
       id="main"
       className="mx-auto w-full max-w-7xl px-5 py-14 sm:px-8 lg:px-12 lg:py-20 min-h-[50vh]"
     >
-      <span className="mb-4 block text-[10px] font-bold tracking-[0.2em] uppercase text-[#df4a20]">
+      <span className="mb-4 block text-[10px] font-bold tracking-[0.2em] uppercase text-[#8f734d]">
         404
       </span>
       <h1>Let’s find your way.</h1>
@@ -13,7 +13,7 @@ export default function NotFound() {
         This page isn’t available. Explore our current tours and activities.
       </p>
       <Link
-        className="inline-flex min-h-12 items-center justify-center gap-3 rounded-lg bg-[#ff6435] px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-[#df4a20] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#ff6435]"
+        className="inline-flex min-h-12 items-center justify-center gap-3 rounded-sm bg-[#33483c] px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-[#8f734d] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#33483c]"
         href="/tours"
       >
         Explore experiences ↗
