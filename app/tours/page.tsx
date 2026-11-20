@@ -34,26 +34,29 @@ export default async function Tours({
       (a, b) => Number(a.duration_days || 1) - Number(b.duration_days || 1),
     );
   return (
-    <main id="main">
-      <section className="mx-auto w-full max-w-7xl px-5 py-14 sm:px-8 lg:px-12 lg:py-20 pb-8">
-        <span className="mb-4 block text-[10px] font-bold tracking-[0.2em] uppercase text-[#a44327]">
-          EXPLORE THE COLLECTION
-        </span>
-        <h1>Find a journey that fits you.</h1>
-        <p>
-          Browse shared desert adventures, day trips and longer journeys across Morocco. Filter by destination, experience and budget to find the right route.
-        </p>
-      </section>
-      <div className="mx-auto w-full max-w-7xl px-5 py-14 sm:px-8 lg:px-12 lg:py-20 grid items-start gap-10 pt-0 lg:grid-cols-[280px_minmax(0,1fr)]">
-        <aside className="rounded-[26px] border border-[#17362e]/10 bg-white p-7 shadow-sm lg:sticky lg:top-6 [&_h2]:text-2xl [&_label]:mb-4 [&_label]:block [&_label]:text-xs [&_label]:font-semibold [&_input]:mt-2 [&_input]:min-h-12 [&_input]:w-full [&_input]:rounded-xl [&_input]:border [&_input]:border-stone-200 [&_input]:bg-white [&_input]:px-4 [&_input]:py-3 [&_input]:text-sm [&_select]:mt-2 [&_select]:min-h-12 [&_select]:w-full [&_select]:rounded-xl [&_select]:border [&_select]:border-stone-200 [&_select]:bg-white [&_select]:px-3 [&_select]:py-3 [&_select]:text-sm [&_textarea]:mt-2 [&_textarea]:w-full [&_textarea]:rounded-xl [&_textarea]:border [&_textarea]:border-stone-200 [&_textarea]:bg-white [&_textarea]:p-4 [&_textarea]:text-sm [&_input:focus]:outline-2 [&_input:focus]:outline-[#b34c2f] [&_select:focus]:outline-2 [&_select:focus]:outline-[#b34c2f] [&_textarea:focus]:outline-2 [&_textarea:focus]:outline-[#b34c2f]">
-          <form action="/tours">
-            <h2>Find your experience</h2>
+    <main id="main" className="bg-[#f7f8fa]">
+      <section className="border-b border-slate-200 bg-white">
+        <div className="mx-auto max-w-[1400px] px-5 py-10 sm:px-8 lg:px-12">
+          <p className="mb-3 text-[10px] font-bold tracking-wider text-[#df4a20] uppercase">
+            Your Morocco starts here
+          </p>
+          <h1 className="mb-3! text-3xl! sm:text-5xl!">
+            Find your next adventure.
+          </h1>
+          <p className="max-w-xl text-sm leading-7 text-slate-500">
+            From a few hours in Marrakech to a journey across the country.
+            Compare experiences and find the one for you.
+          </p>
+          <form
+            action="/tours"
+            className="mt-7 grid gap-3 sm:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1fr_auto] [&_label]:block [&_label]:text-[10px] [&_label]:font-semibold [&_label]:text-slate-500 [&_input]:mt-1.5 [&_input]:min-h-12 [&_input]:w-full [&_input]:rounded-lg [&_input]:border [&_input]:border-slate-200 [&_input]:bg-white [&_input]:px-3 [&_input]:text-xs [&_input]:text-slate-800 [&_select]:mt-1.5 [&_select]:min-h-12 [&_select]:w-full [&_select]:rounded-lg [&_select]:border [&_select]:border-slate-200 [&_select]:bg-white [&_select]:px-3 [&_select]:text-xs [&_select]:text-slate-800"
+          >
             <label>
               Destination or keyword
               <input
                 name="q"
                 defaultValue={q}
-                placeholder="Where would you like to go?"
+                placeholder="Where do you want to go?"
               />
             </label>
             <label>
@@ -89,43 +92,43 @@ export default async function Tours({
                 <option value="duration">Shortest first</option>
               </select>
             </label>
-            <button className="inline-flex min-h-12 items-center justify-center gap-3 rounded-full bg-[#b34c2f] px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-[#913c24] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#b34c2f]">
+            <button className="min-h-12 self-end rounded-lg bg-[#ff6435] px-6 text-xs font-bold text-white transition hover:bg-[#df4a20]">
               Show experiences
             </button>
-            <Link
-              className="inline-flex items-center gap-2 border-b border-[#b34c2f]/50 pb-1 text-sm font-semibold text-[#153e35] transition hover:text-[#b34c2f]"
-              href="/tours"
-            >
-              Clear filters
-            </Link>
           </form>
-        </aside>
-        <div>
-          <div className="mb-6 text-sm text-stone-500">
-            {items.length} journeys available to explore {q && <>matching “{q}”</>}
-          </div>
-          {items.length ? (
-            <div className="grid grid-cols-1 gap-7 md:grid-cols-2">
-              {items.map((s) => (
-                <TourCard key={s.id} tour={s} />
-              ))}
-            </div>
-          ) : (
-            <div className="rounded-3xl bg-stone-100 p-10 [&_h2]:text-3xl [&_p]:my-5">
-              <h2>No experiences match those filters.</h2>
-              <p>
-                Try a broader search or ask our team for help with your route.
-              </p>
-              <Link
-                href="/contact-us"
-                className="inline-flex min-h-12 items-center justify-center gap-3 rounded-full bg-[#b34c2f] px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-[#913c24] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#b34c2f]"
-              >
-                Ask our team
-              </Link>
-            </div>
-          )}
         </div>
-      </div>
+      </section>
+      <section className="mx-auto max-w-[1400px] px-5 py-8 sm:px-8 lg:px-12">
+        <div className="mb-6 flex items-center justify-between gap-4">
+          <p className="text-sm text-slate-500">
+            <strong className="text-slate-900">{items.length}</strong>{" "}
+            experiences {q && <>matching “{q}”</>}
+          </p>
+          <Link href="/tours" className="text-xs font-semibold text-[#df4a20]">
+            Reset filters
+          </Link>
+        </div>
+        {items.length ? (
+          <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+            {items.map((s) => (
+              <TourCard key={s.id} tour={s} />
+            ))}
+          </div>
+        ) : (
+          <div className="rounded-xl border border-slate-200 bg-white p-10 text-center">
+            <h2>No trips match just yet.</h2>
+            <p className="mb-6 text-sm text-slate-500">
+              Try a different destination or ask our local team for help.
+            </p>
+            <Link
+              href="/contact-us"
+              className="inline-flex rounded-lg bg-slate-950 px-5 py-3 text-xs font-bold text-white"
+            >
+              Ask a local
+            </Link>
+          </div>
+        )}
+      </section>
     </main>
   );
 }

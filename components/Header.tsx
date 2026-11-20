@@ -1,144 +1,139 @@
 import Link from "next/link";
+import {
+  Route,
+  ArrowUpRight,
+  MessageCircle,
+  ArrowRight,
+  Phone,
+} from "lucide-react";
 import MobileMenu from "./MobileMenu";
-import { ArrowUpRight, Compass, Phone, MessageCircle, ArrowRight } from "lucide-react";
-const button =
-  "inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#17362e] px-6 py-3 text-xs font-bold text-white transition hover:bg-[#285646]";
-function Brand() {
-  return (
-    <>
-      <span className="grid size-12 place-items-center rounded-full border border-[#153e35]/20 bg-[#ede7da]">
-        <Compass className="size-7 stroke-[1.25]" />
-      </span>
-      <span className="text-[14px] font-extrabold tracking-[0.12em] sm:text-[16px]">
-        SHARED MOROCCO
-        <span className="mt-1 block text-[8px] font-semibold tracking-[0.29em]">
-          TRIPS
-        </span>
-      </span>
-    </>
-  );
-}
 export function Header() {
   return (
-    <>
-      <div className="flex items-center justify-between bg-[#17362e] px-6 py-3 text-[11px] tracking-wide text-white/85 sm:px-10 lg:px-14">
-        <span>Locally planned. Shared with you.</span>
-        <a className="flex items-center gap-2" href="tel:+212600454881">
-          <Phone className="size-3" />
-          +212 600 454 881
-        </a>
-      </div>
-      <header className="relative z-30 mx-auto flex max-w-[1440px] items-center justify-between gap-5 px-6 py-5 sm:px-10 lg:px-14">
+    <header className="relative z-30 border-b border-slate-100 bg-white">
+      <div className="mx-auto flex h-20 max-w-[1400px] items-center justify-between gap-6 px-5 sm:px-8 lg:px-12">
         <Link
           href="/"
-          className="flex shrink-0 items-center gap-3"
           aria-label="Shared Morocco Trips home"
+          className="flex items-center gap-2.5"
         >
-          <Brand />
+          <span className="grid size-10 place-items-center rounded-xl bg-[#ff6435] text-white">
+            <Route className="size-6 stroke-[2.5]" />
+          </span>
+          <span className="text-lg leading-[1.05] font-extrabold tracking-[-0.06em] text-slate-950">
+            shared<span className="text-[#e94b1d]">morocco</span>
+            <span className="mt-1 block text-[9px] font-medium tracking-[0.22em] text-slate-500 uppercase">
+              Trips worth sharing
+            </span>
+          </span>
         </Link>
         <nav
-          className="hidden items-center gap-8 text-[13px] font-semibold lg:flex"
           aria-label="Main navigation"
+          className="hidden items-center gap-7 text-[13px] font-semibold text-slate-600 lg:flex"
         >
-          <Link className="transition hover:text-[#b34c2f]" href="/tours">
-            Explore trips
+          <Link className="hover:text-[#e94b1d]" href="/tours">
+            Find a trip
           </Link>
           <Link
-            className="transition hover:text-[#b34c2f]"
+            className="hover:text-[#e94b1d]"
             href="/tours?category=Desert+tours"
           >
-            Sahara journeys
+            Desert tours
           </Link>
           <Link
-            className="transition hover:text-[#b34c2f]"
+            className="hover:text-[#e94b1d]"
             href="/tours?category=Day+trips"
           >
-            Day excursions
+            Day trips
           </Link>
-          <Link className="transition hover:text-[#b34c2f]" href="/blog">
-            Journal
+          <Link
+            className="hover:text-[#e94b1d]"
+            href="/tours?category=Activities"
+          >
+            Things to do
+          </Link>
+          <Link className="hover:text-[#e94b1d]" href="/blog">
+            Travel guides
           </Link>
         </nav>
-        <Link className={button + " hidden sm:inline-flex"} href="/contact-us">
-          Plan your journey
-          <ArrowUpRight className="size-4" />
+        <Link
+          href="/contact-us"
+          className="hidden items-center gap-2 rounded-lg bg-slate-950 px-4 py-3 text-xs font-semibold text-white transition hover:bg-slate-700 sm:inline-flex"
+        >
+          <MessageCircle className="size-4" />
+          Ask a local
+          <ArrowUpRight className="size-3.5" />
         </Link>
         <MobileMenu />
-      </header>
-    </>
+      </div>
+    </header>
   );
 }
 export function Footer() {
   return (
-    <footer className="bg-[#102f28] px-5 pt-16 pb-7 text-[#e8eee9] sm:px-8 lg:px-12">
-      <div className="mx-auto grid max-w-6xl gap-12 pb-14 md:grid-cols-[1.3fr_1fr_1fr]">
+    <footer className="border-t border-slate-200 bg-white">
+      <div className="mx-auto grid max-w-[1400px] gap-10 px-5 py-14 sm:px-8 md:grid-cols-[1.4fr_1fr_1fr] lg:px-12">
         <div>
-          <Link className="flex items-center gap-3" href="/">
-            <Compass className="size-10 stroke-1" />
-            <span className="text-lg font-bold tracking-[0.1em]">
-              SHARED MOROCCO
-              <span className="block text-[9px] tracking-[0.25em]">
-                TRIPS
-              </span>
-            </span>
+          <Link
+            href="/"
+            className="flex items-center gap-2 text-lg font-extrabold tracking-tight"
+          >
+            <Route className="size-6 text-[#ed592e]" />
+            sharedmorocco
           </Link>
-          <p className="mt-6 max-w-xs text-sm leading-7 text-white/55">
-            Shared roads. New friendships. A Morocco you’ll remember long after
-            the journey home.
+          <p className="mt-4 max-w-xs text-sm leading-7 text-slate-500">
+            Your next Morocco story starts here. Shared tours, local knowledge
+            and more ways to explore.
           </p>
+          <Link
+            href="/contact-us"
+            className="mt-5 inline-flex items-center gap-2 text-xs font-bold text-[#df4a20]"
+          >
+            Let’s find your trip
+            <ArrowRight className="size-4" />
+          </Link>
         </div>
         <div>
-          <h3 className="mb-6 text-xs font-semibold tracking-wider uppercase text-[#d8bc93]">
-            Find your experience
+          <h3 className="mb-5 text-xs font-bold uppercase tracking-wider">
+            Explore Morocco
           </h3>
-          <div className="flex flex-col gap-3 text-sm text-white/70">
-            <Link href="/tours">All tours & activities</Link>
-            <Link href="/tours?category=Desert+tours">Sahara desert tours</Link>
-            <Link href="/tours?category=Day+trips">
-              Day trips from Marrakech
-            </Link>
-            <Link href="/blog">Travel journal</Link>
-            <Link href="/contact-us">Our local team</Link>
+          <div className="flex flex-col gap-3 text-sm text-slate-500">
+            <Link href="/tours">All experiences</Link>
+            <Link href="/tours?category=Desert+tours">Desert tours</Link>
+            <Link href="/tours?category=Day+trips">Day trips</Link>
+            <Link href="/tours?category=Activities">Activities</Link>
+            <Link href="/blog">Travel guides</Link>
           </div>
         </div>
         <div>
-          <h3 className="mb-6 text-xs font-semibold tracking-wider uppercase text-[#d8bc93]">
-            A real person, a better plan
+          <h3 className="mb-5 text-xs font-bold uppercase tracking-wider">
+            We’re here to help
           </h3>
           <a
-            className="mb-4 flex items-center gap-2 text-lg"
             href="tel:+212600454881"
+            className="flex items-center gap-2 text-sm font-semibold"
           >
             <Phone className="size-4" />
             +212 600 454 881
           </a>
           <a
-            className="text-sm text-white/70"
+            className="mt-3 block text-sm text-slate-500"
             href="mailto:Desertbrise@gmail.com"
           >
             Desertbrise@gmail.com
           </a>
-          <p className="mt-4 text-xs leading-6 text-white/50">
-            M’Hamid El Ghizlane
+          <p className="mt-5 text-xs leading-6 text-slate-400">
+            M’Hamid El Ghizlane, Zagora
             <br />
-            Zagora, Morocco
+            Morocco
           </p>
-          <Link
-            className="mt-6 inline-flex items-center gap-2 text-xs text-[#d8bc93]"
-            href="/contact-us"
-          >
-            <MessageCircle className="size-4" />
-            Let’s talk about your trip
-            <ArrowUpRight className="size-4" />
-          </Link>
         </div>
       </div>
-      <div className="mx-auto flex max-w-6xl flex-col justify-between gap-4 border-t border-white/10 pt-6 text-[10px] text-white/45 sm:flex-row">
+      <div className="mx-auto flex max-w-[1400px] flex-wrap items-center justify-between gap-4 border-t border-slate-100 px-5 py-6 text-[11px] text-slate-400 sm:px-8 lg:px-12">
         <span>© {new Date().getFullYear()} Shared Morocco Trips</span>
-        <div className="flex flex-wrap gap-5">
+        <div className="flex gap-5">
           <Link href="/privacy-policy">Privacy</Link>
-          <Link href="/terms-and-conditions">Terms & conditions</Link>
-          <Link href="/cancellation-policy">Cancellation policy</Link>
+          <Link href="/terms-and-conditions">Terms</Link>
+          <Link href="/cancellation-policy">Cancellation</Link>
         </div>
       </div>
     </footer>

@@ -18,7 +18,7 @@ export default function Inquiry({
         e.preventDefault();
         setReady(true);
       }}
-      className="[&_label]:mb-4 [&_label]:block [&_label]:text-xs [&_label]:font-semibold [&_input]:mt-2 [&_input]:min-h-12 [&_input]:w-full [&_input]:rounded-xl [&_input]:border [&_input]:border-stone-200 [&_input]:bg-white [&_input]:px-4 [&_input]:py-3 [&_input]:text-sm [&_select]:mt-2 [&_select]:min-h-12 [&_select]:w-full [&_select]:rounded-xl [&_select]:border [&_select]:border-stone-200 [&_select]:bg-white [&_select]:px-3 [&_select]:py-3 [&_select]:text-sm [&_textarea]:mt-2 [&_textarea]:w-full [&_textarea]:rounded-xl [&_textarea]:border [&_textarea]:border-stone-200 [&_textarea]:bg-white [&_textarea]:p-4 [&_textarea]:text-sm [&_input:focus]:outline-2 [&_input:focus]:outline-[#b34c2f] [&_select:focus]:outline-2 [&_select:focus]:outline-[#b34c2f] [&_textarea:focus]:outline-2 [&_textarea:focus]:outline-[#b34c2f] [&_textarea]:h-24 [&_button]:w-full [&>a]:w-full"
+      className="[&_label]:mb-4 [&_label]:block [&_label]:text-xs [&_label]:font-semibold [&_input]:mt-2 [&_input]:min-h-12 [&_input]:w-full [&_input]:rounded-xl [&_input]:border [&_input]:border-stone-200 [&_input]:bg-white [&_input]:px-4 [&_input]:py-3 [&_input]:text-sm [&_select]:mt-2 [&_select]:min-h-12 [&_select]:w-full [&_select]:rounded-xl [&_select]:border [&_select]:border-stone-200 [&_select]:bg-white [&_select]:px-3 [&_select]:py-3 [&_select]:text-sm [&_textarea]:mt-2 [&_textarea]:w-full [&_textarea]:rounded-xl [&_textarea]:border [&_textarea]:border-stone-200 [&_textarea]:bg-white [&_textarea]:p-4 [&_textarea]:text-sm [&_input:focus]:outline-2 [&_input:focus]:outline-[#ff6435] [&_select:focus]:outline-2 [&_select:focus]:outline-[#ff6435] [&_textarea:focus]:outline-2 [&_textarea:focus]:outline-[#ff6435] [&_textarea]:h-24 [&_button]:w-full [&>a]:w-full"
     >
       <label>
         Preferred date
@@ -61,7 +61,7 @@ export default function Inquiry({
       </label>
       {ready ? (
         <a
-          className="inline-flex min-h-12 items-center justify-center gap-3 rounded-full bg-[#b34c2f] px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-[#913c24] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#b34c2f]"
+          className="inline-flex min-h-12 items-center justify-center gap-3 rounded-lg bg-[#ff6435] px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-[#df4a20] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#ff6435]"
           href={`https://wa.me/212600454881?text=${encodeURIComponent(query)}`}
           target="_blank"
           rel="noopener noreferrer"
@@ -70,15 +70,16 @@ export default function Inquiry({
         </a>
       ) : (
         <button
-          className="inline-flex min-h-12 items-center justify-center gap-3 rounded-full bg-[#b34c2f] px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-[#913c24] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#b34c2f]"
+          className="inline-flex min-h-12 items-center justify-center gap-3 rounded-lg bg-[#ff6435] px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-[#df4a20] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#ff6435]"
           type="submit"
         >
           Continue to WhatsApp ↗
         </button>
       )}
       <p className="my-4 text-xs leading-6 text-stone-500">
-        Your request opens WhatsApp for you to review and send. Our team will confirm availability,
-        the final price and arrangements. This does not reserve a place.
+        Your request opens WhatsApp for you to review and send. Our team will
+        confirm availability, the final price and arrangements. This does not
+        reserve a place.
       </p>
     </form>
   );

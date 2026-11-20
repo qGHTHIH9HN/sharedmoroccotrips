@@ -10,7 +10,7 @@ export default async function Blog() {
       className="mx-auto w-full max-w-7xl px-5 py-14 sm:px-8 lg:px-12 lg:py-20"
     >
       <div className="mb-10 [&_p]:max-w-2xl [&_p]:text-lg [&_p]:text-stone-500">
-        <span className="mb-4 block text-[10px] font-bold tracking-[0.2em] uppercase text-[#a44327]">
+        <span className="mb-4 block text-[10px] font-bold tracking-[0.2em] uppercase text-[#df4a20]">
           THE TRAVEL JOURNAL
         </span>
         <h1>A little local knowledge.</h1>
@@ -34,12 +34,12 @@ export default async function Blog() {
               </div>
             )}
             <div className="flex flex-1 flex-col p-6 [&_h2]:mb-4 [&_h2]:text-2xl [&_p]:mb-5 [&_p]:text-sm [&_p]:leading-7 [&_p]:text-stone-500">
-              <span className="mb-4 block text-[10px] font-bold tracking-[0.2em] uppercase text-[#a44327]">
+              <span className="mb-4 block text-[10px] font-bold tracking-[0.2em] uppercase text-[#df4a20]">
                 {text(p.category) || "Morocco travel"}
               </span>
               <h2>{p.title}</h2>
               <p>{text(p.excerpt)}</p>
-              <span className="inline-flex items-center gap-2 border-b border-[#b34c2f]/50 pb-1 text-sm font-semibold text-[#153e35] transition hover:text-[#b34c2f]">
+              <span className="inline-flex items-center gap-2 border-b border-[#ff6435]/50 pb-1 text-sm font-semibold text-[#172033] transition hover:text-[#ff6435]">
                 Read the story ↗
               </span>
             </div>
